@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Gajraj+One&family=Wallpoet&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .App {
   text-align: center;
@@ -16,4 +19,9 @@ h1 {
   background: linear-gradient(to right, #c619ff 0%, #001264 100%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin: 0%;
+}
+
+.navbar {
+  background-color: rgba(128, 224, 224, 0.0);
 }
