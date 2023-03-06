@@ -63,6 +63,8 @@ h1 {
 .menu {
   background-color: rgba(246, 255, 255, 0.1);
 }
+
+
 @media screen and (max-width: 1000px)  {
   .l {
     margin-top: 10%;
