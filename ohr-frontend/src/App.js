@@ -1,12 +1,12 @@
 import './App.css';
 import ear from './accets/logo2.png';
-import avatar from './accets/avatar.png';
+
 import UpperNav from './components/upper-nav.jsx';
 import BottomNav from './components/bottom-nav.jsx';
 import Landing from './components/landing-view';
 import ConnectionButton from "./components/connection-button";
 import Recording from './components/recording-view';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { clusterApiUrl } from '@solana/web3.js';
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 import {
@@ -36,6 +36,9 @@ function App() {
   const solNetwork = WalletAdapterNetwork.Mainnet;
   const endpoint = useMemo(() => clusterApiUrl(solNetwork), [solNetwork]);
 
+  // to track the wallet connection (TO DO: check useRef as alternative)
+  const [connected, setConnected] = useState(false);
+
   // initialise all the wallets you want to use
   const wallets = useMemo(
     () => [
@@ -56,16 +59,14 @@ function App() {
       <WalletProvider wallets={wallets} >
         <WalletModalProvider>
           <div className="App">
-            <UpperNav avatar={avatar} />
+            <UpperNav setConnected={setConnected} />
 
-            {/* when not logged in: */}
-            <Landing ear={ear} />
-
-            {/* when logged in */}
-            {/* <Recording ear={ear} /> */}
-
-            {/* here is connection button!!!!! */}
-            <ConnectionButton className="btn btn-active"/>
+            {!connected ?
+              <>
+                <Landing ear={ear} />
+                {/* <ConnectionButton className="btn btn-active" setConnected={setConnected} /> */}
+              </> :
+              <Recording ear={ear} />}
 
             <BottomNav />
           </div>
