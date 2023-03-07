@@ -31,6 +31,7 @@ function App() {
   	// you can use Mainnet, Devnet or Testnet here
     const solNetwork = WalletAdapterNetwork.Mainnet;
     const endpoint = useMemo(() => clusterApiUrl(solNetwork), [solNetwork]);
+
     // initialise all the wallets you want to use
     const wallets = useMemo(
         () => [
@@ -46,9 +47,8 @@ function App() {
         [solNetwork]
     );
 
-    const { connection } = useConnection();
-const wallet = useWallet();
-console.log(connection, wallet)
+  
+ 
 
 
   return (
@@ -82,13 +82,12 @@ console.log(connection, wallet)
     
           {/*  here is the listen/record button*/}
           <div className="l">
-            <h1>ohr</h1>
+            <h1 className='app-title'>ohr</h1>
             <img className="listen" src={ear} />
           </div>
     
-          {/* here is the log in button!!!!! */}
-          <button className="btn btn-active" >Connect wallet</button>
-          <ConnectionButton/>
+          {/* here is connection button!!!!! */}
+          <ConnectionButton className="btn btn-active"/>
     
           {/*bottom nav (will be moved (probably) in it's ovn component) */}
           <div className="navbar bg-base-100">

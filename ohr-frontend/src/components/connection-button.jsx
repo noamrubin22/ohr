@@ -6,8 +6,8 @@ const ConnectionButton = () => {
     const { publicKey, sendTransaction } = useWallet();
     
     return (
-    	<div>
-            <WalletMultiButton className='btn btn-active'/>
+    	<div className="flex justify-center	">
+            <WalletMultiButton className="wallet-button"/>
         </div>
     )
 }
