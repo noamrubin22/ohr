@@ -8,7 +8,6 @@ function Recording({ ear }) {
                 </div>
                 <img className="listen" src={ear} />
             </div>
-            {/* <button className="btn btn-orange btn-ghost">log out</button> */}
         </>
     )
 }
