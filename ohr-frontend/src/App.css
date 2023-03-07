@@ -19,10 +19,19 @@ body {
   font-family: 'Gajraj One', cursive;
 }
 
-h1 {
+
+.app-title {
   width: 30px;
   font-size: 4rem;
   word-break: break-all;
+}
+
+.wallet-adapter-button {
+  color: #ffffff !important;
+  background:#313641 !important;
+  padding: 0px 16px !important;
+  font: 14px Gajraj One, cursive !important;
+
 }
 
 .navbar {
