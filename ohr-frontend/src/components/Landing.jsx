@@ -5,7 +5,6 @@ function Landing({ear}) {
                 <h1>ohr</h1>
                 <img className="listen" src={ear} />
             </div>
-            <button className="btn btn-orange btn-ghost">log in</button>
         </>
     )
 }

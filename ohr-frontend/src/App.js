@@ -9,7 +9,6 @@ import Recording from './components/Recording';
 function App() {
 	return (
 		<div className="App">
-			{/* logged in ? avarar = user profile pic/wallet avatar : basic avatar*/}
 			<UpperNav avatar={avatar} />
 
 			{/* when not logged in: */}
