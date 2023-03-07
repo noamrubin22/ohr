@@ -4,7 +4,7 @@ ohr is a decentralized application (dApp) that enables users to record and uploa
 
 ## How it works
 
-To use ohr, simply record an audio clip using your device's microphone or audio recording software, and upload it to the ohr dApp. The audio clip is then processed to create a unique music visualization, which is minted as an NFT on the Solana blockchain along with the audio recording. This provides proof of ownership and authenticity of the recording and its corresponding visualization.
+To use ohr, simply record an audio clip holding the recording button in the ohr dApp. The audio clip is then processed to create a unique music visualization, which is minted as an NFT on the Solana blockchain along with the audio recording. This provides proof of ownership and authenticity of the recording and its corresponding visualization.
 
 Each audio NFT and its corresponding visualization are unique and can be bought, sold, or traded on the Solana blockchain. This provides a new way for collectors, music enthusiasts, and anyone interested in unique and rare digital assets to own and share special audio recordings and their visualizations.
 
