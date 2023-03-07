@@ -1,11 +1,11 @@
 import './App.css';
 import ear from './accets/logo2.png';
 import avatar from './accets/avatar.png';
-import UpperNav from './components/UpperNav.jsx';
-import BottomNav from './components/BottomNav.jsx';
-import Landing from './components/Landing';
-import Recording from './components/Recording';
-
+import UpperNav from './components/upper-nav.jsx';
+import BottomNav from './components/bottom-nav.jsx';
+import Landing from './components/landing-view';
+import ConnectionButton from "./components/connection-button";
+import Recording from './components/recording-view';
 import { useMemo } from 'react';
 import { clusterApiUrl } from '@solana/web3.js';
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
@@ -27,7 +27,7 @@ import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { useConnection, useWallet, } from '@solana/wallet-adapter-react';
 
 import { setVisible } from '@solana/wallet-adapter-react-ui';
-import ConnectionButton from "./components/connection-button"
+
 require('@solana/wallet-adapter-react-ui/styles.css');
 
 
@@ -59,10 +59,10 @@ function App() {
             <UpperNav avatar={avatar} />
 
             {/* when not logged in: */}
-            {/* <Landing ear={ear} /> */}
+            <Landing ear={ear} />
 
             {/* when logged in */}
-            <Recording ear={ear} />
+            {/* <Recording ear={ear} /> */}
 
             {/* here is connection button!!!!! */}
             <ConnectionButton className="btn btn-active"/>
