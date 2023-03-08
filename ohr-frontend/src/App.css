@@ -29,9 +29,10 @@ li {
 
 /* nav */
 .wallet-adapter-button {
-  color: #000000 !important;
+  color: #64ed14 !important;
+  text-shadow: 2px 2px #1d014e !important;
   background: #e60073 !important;
-  margin: 0px 6px !important;
+  margin: 6px 6px !important;
   font: 18px Gajraj One, cursive !important;
   border-radius: 25mm !important;
 }
@@ -39,6 +40,7 @@ li {
 .navbar {
   background-color: rgba(128, 224, 224, 0.0);
   height: 10vh;
+  text-shadow: 2px 2px #1d014e;
 }
 
 .modal {
@@ -83,24 +85,18 @@ li {
 /* landing */
 .app-title {
   width: 80px;
-  font-size: 5rem;
+  font-size: 4.5rem;
   word-break: break-all;
   background: linear-gradient(to bottom, #ff00d9 0%, #fbc6c6 50%, #ffae16 100%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow: 8px 8px #64ed14;
   /* border: 2mm solid #5b5b5b; */
 }
 
 .huge-ear {
   max-height: 78vh;
   width: auto;
-  transition: transform .2s;
-  /* border: 2mm solid #5b5b5b; */
-}
-
-.huge-ear:hover {
-  cursor: pointer;
-  transform: scale(1.05);
 }
 
 /* recording */
@@ -113,6 +109,18 @@ li {
   word-break: normal;
   text-align: end;
 }
+
+.rec {
+  transition: transform .2s;
+  border-radius: 50%;
+  box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5);
+}
+
+.rec:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
 
 /* extra fancy stuff */
 .glowing-border {

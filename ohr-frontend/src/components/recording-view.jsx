@@ -51,7 +51,7 @@ const Recording = ({ ear }) => {
                 <p>[timer]</p>
             </div>
             <button disabled={recording} onClick={startRecording}>
-                <img className="huge-ear" src={ear} />
+                <img className="huge-ear rec" src={ear} />
             </button>
         </div>
     )
