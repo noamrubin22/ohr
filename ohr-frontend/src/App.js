@@ -60,14 +60,14 @@ function App() {
         <WalletModalProvider>
           <div className="App">
             <UpperNav setConnected={setConnected} />
-
-            {!connected ?
-              <>
-                <Landing ear={ear} />
-                {/* <ConnectionButton className="btn btn-active" setConnected={setConnected} /> */}
-              </> :
-              <Recording ear={ear} />}
-
+            <div className="central-outer-container">
+              {!connected ?
+                <>
+                  <Landing ear={ear} />
+                  {/* <ConnectionButton className="btn btn-active" setConnected={setConnected} /> */}
+                </> :
+                <Recording ear={ear} />}
+            </div>
             <BottomNav />
           </div>
         </WalletModalProvider>

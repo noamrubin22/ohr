@@ -15,7 +15,7 @@ const ConnectionButton = ({ setConnected }) => {
 
     return (
         <div className="flex justify-center	">
-            <WalletMultiButton className="wallet-button " />
+            <WalletMultiButton className="wallet-button glowing-border" />
         </div>
     )
 }

@@ -3,87 +3,120 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .App {
+  margin: 0;
+  padding: 0;
   text-align: center;
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  padding: 1%;
+  font-family: 'Gajraj One', cursive;
+  color: rgb(164, 164, 164);
+  display: flex;
+  flex-direction: column;
 }
 
 body {
-  min-height: 100vh;
-  background-image: linear-gradient(to bottom right, #2D0376, #b538fd);
-  font-family: 'Gajraj One', cursive;
-  color: rgb(164, 164, 164);
+  background-image: linear-gradient(to bottom right, #1d014e, #cf38fd);
 }
 
-.app-title {
-  width: 6vw;
-  font-size: 5rem;
-  word-break: break-all;
-}
-
+/* TO DO: pick fonts!!!!!! */
 li {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.btn {
+  border-radius: 25mm;
+}
+
+/* nav */
 .wallet-adapter-button {
-  color: #ffffff !important;
-  background:#313641 !important;
-  padding: 0px 16px !important;
-  font: 14px Gajraj One, cursive !important;
+  color: #000000 !important;
+  background: #e60073 !important;
+  margin: 0px 6px !important;
+  font: 18px Gajraj One, cursive !important;
+  border-radius: 25mm !important;
 }
 
 .navbar {
   background-color: rgba(128, 224, 224, 0.0);
+  height: 10vh;
 }
 
-.menu {
-  background-color: rgba(246, 255, 255, 0.2);
+.modal {
+  background-color: rgba(128, 224, 224, 0.0);
 }
 
-.middle-of-the-screen {
+.modal-box {
+  box-shadow: 10px 10px 160px 140px rgb(34, 34, 34);
+  color: rgb(192, 192, 192);
+  background-color: rgb(34, 34, 34);
+}
+
+.py-4 {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: justify;
+  /* font-size: 1.2em; */
+}
+
+.blue {
+  color: rgb(0, 255, 251);
+  font-size: x-large;
+}
+
+/* middle */
+.central-outer-container {
+  height: 80vh;
+  width: 100vw;
+  position: relative;
+  /* border: 2mm solid #000000; */
+}
+
+.central-inner-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  /* border: 2mm solid #5b5b5b; */
+}
+
+/* landing */
+.app-title {
+  width: 80px;
+  font-size: 5rem;
+  word-break: break-all;
   background: linear-gradient(to bottom, #ff00d9 0%, #fbc6c6 50%, #ffae16 100%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  /* border: 2mm solid #5b5b5b; */
 }
 
-.listen {
-  max-height: 75vh;
-  max-width: auto;
+.huge-ear {
+  max-height: 78vh;
+  width: auto;
   transition: transform .2s;
+  /* border: 2mm solid #5b5b5b; */
 }
 
-.listen:hover {
+.huge-ear:hover {
   cursor: pointer;
   transform: scale(1.05);
 }
 
-.btn-orange {
-  background-image: linear-gradient(to right, rgba(255, 187, 0, 0.2) 0%, rgba(185, 0, 252, 0.2) 100%);
-}
-
-.o {
+/* recording */
+.rec-helpers {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   font-size: large;
-  width: 6vw;
   word-break: normal;
   text-align: end;
 }
 
-.recording-view-layout {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
+/* extra fancy stuff */
 .glowing-border {
-  animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 3s ease-in-out infinite alternate;
 }
 
 @keyframes glow {
@@ -92,23 +125,24 @@ li {
   }
 
   to {
-    box-shadow: 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ac4dff;
+    box-shadow: 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ac4dff;
   }
 }
 
-
-@media screen and (max-width: 1000px) {
-  .middle-of-the-screen {
-    margin-top: 10%;
-    margin-bottom: 10%;
-    margin-left: 10%;
+@media only screen and (max-width: 768px) {
+  .central-inner-container {
+    height: 90%;
+    width: 90%;
   }
-}
 
-@media screen and (max-width: 500px) {
-  .middle-of-the-screen {
-    margin-top: 20%;
-    margin-bottom: 20%;
-    margin-left: 10%;
+  .app-title {
+    width: 45px;
+    font-size: 4rem;
+  }
+
+  .rec-helpers {
+    text-align: start;
+    width: 45px;
+    font-size: smaller;
   }
 }
