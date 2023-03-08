@@ -36,7 +36,7 @@ function App() {
   const solNetwork = WalletAdapterNetwork.Mainnet;
   const endpoint = useMemo(() => clusterApiUrl(solNetwork), [solNetwork]);
 
-  // to track the wallet connection (TO DO: check useRef as alternative)
+  // to track the wallet connection 
   const [connected, setConnected] = useState(false);
 
   // initialise all the wallets you want to use
@@ -62,10 +62,8 @@ function App() {
             <UpperNav setConnected={setConnected} />
             <div className="central-outer-container">
               {!connected ?
-                <>
-                  <Landing ear={ear} />
-                  {/* <ConnectionButton className="btn btn-active" setConnected={setConnected} /> */}
-                </> :
+                <Landing ear={ear} />
+                :
                 <Recording ear={ear} />}
             </div>
             <BottomNav />
