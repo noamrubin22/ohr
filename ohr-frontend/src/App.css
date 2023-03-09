@@ -3,44 +3,54 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .App {
   margin: 0;
   padding: 0;
   text-align: center;
   font-family: 'Gajraj One', cursive;
-  color: rgb(164, 164, 164);
+  color: rgb(195, 195, 195);
   display: flex;
   flex-direction: column;
 }
 
 body {
-  background-image: linear-gradient(to bottom right, #1d014e, #cf38fd);
+  background-image: linear-gradient(to bottom right, #190241, #fd38d6);
 }
 
-/* TO DO: pick fonts! */
 li {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .btn {
   border-radius: 25mm;
+  border: none;
+}
+
+.btn-ghost:hover {
+  background-color: rgba(128, 224, 224, 0.0);
+  font-style: italic;
 }
 
 /* nav */
 .wallet-adapter-button {
   color: #64ed14 !important;
-  text-shadow: 2px 2px #1d014e !important;
+  text-shadow: 2px 2px #210059 !important;
   background: #e60073 !important;
-  margin: 6px 6px !important;
-  font: 18px Gajraj One, cursive !important;
+  font: 20px Gajraj One, cursive !important;
   border-radius: 25mm !important;
+  text-transform: lowercase;
+}
+
+.wallet-adapter-button:hover {
+  font-style: italic !important;
 }
 
 .navbar {
   background-color: rgba(128, 224, 224, 0.0);
   height: 10vh;
-  text-shadow: 2px 2px #1d014e;
+  text-shadow: 3px 3px #1d014e;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
 .modal {
@@ -69,58 +79,76 @@ li {
   height: 80vh;
   width: 100vw;
   position: relative;
-  /* border: 2mm solid #000000; */
 }
 
 .central-inner-container {
   position: absolute;
+  width: 90%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: row;
-  /* border: 2mm solid #5b5b5b; */
+  /* border: 2mm solid #190241; */
 }
 
 /* landing */
 .app-title {
   width: 80px;
+  margin-left: 22%;
   font-size: 4.5rem;
   word-break: break-all;
   background: linear-gradient(to bottom, #ff00d9 0%, #fbc6c6 50%, #ffae16 100%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 8px 8px #64ed14;
-  /* border: 2mm solid #5b5b5b; */
-}
-
-.huge-ear {
-  max-height: 78vh;
-  width: auto;
+  font-style: italic;
+  position: absolute;
 }
 
 /* recording */
 .rec-helpers {
   width: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   font-size: large;
-  word-break: normal;
-  text-align: end;
+  text-align: start;
+  position: absolute;
+  margin-left: 70%;
+  margin-top: 20%;
+}
+
+.text {
+  opacity: 0.5;
+  font-style: italic;
+}
+
+.huge-ear img{
+  /* border: 2mm solid #190241; */
+  height: 70vh;
+  width: auto;
 }
 
 .rec {
-  transition: transform .2s;
-  border-radius: 50%;
-  box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5);
+  transition: transform .3s;
 }
 
 .rec:hover {
   cursor: pointer;
-  transform: scale(1.05);
+  transform: scale(1.02);
+} 
+
+.grupped {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  box-shadow: 10px 10px 220px 50px rgb(140, 0, 199);
+  border-radius: 5%;
+  background-color: #191D24;
 }
 
+.grupped button:hover {
+  font-style: italic;
+}
 
 /* extra fancy stuff */
 .glowing-border {
@@ -148,9 +176,14 @@ li {
     font-size: 4rem;
   }
 
+  .app-title{
+    margin-left: 0%;
+  }
+
   .rec-helpers {
     text-align: start;
+    margin-left: 80%;
     width: 45px;
-    font-size: smaller;
   }
+
 }
