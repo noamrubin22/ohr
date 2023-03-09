@@ -1,5 +1,5 @@
 import './App.css';
-import ear from './accets/logo2.png';
+import ear from './accets/ohr2.png';
 
 import UpperNav from './components/upper-nav.jsx';
 import BottomNav from './components/bottom-nav.jsx';
