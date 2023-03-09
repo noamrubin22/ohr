@@ -48,37 +48,36 @@ const Recording = ({ ear }) => {
             // console.log("I'm playing");
         }
     }
-
+    // TO DO: read if i should also clean lockal/any storage
     const handleDiscard = () => {
         const confirmed = window.confirm("Are you sure you want to discard your audio?");
         if (confirmed) {
             setDidRecord(false);
             setRecUrl(null);
         }
-        
     };
 
     return (
         <>
-        <div className="central-inner-container">
-            <div className="rec-helpers">
-                <p className='text'>press and hold the ear to record a sound</p>
-                {/* <p className='timer'>[timer]</p> */}
+            <div className="central-inner-container">
+                <div className="rec-helpers">
+                    <p className='text'>press and hold the ear to record a sound</p>
+                    {/* <p className='timer'>[timer]</p> */}
+                </div>
+                <h1 className="app-title">ohr</h1>
+                <button className={didRecord ? "huge-ear" : "huge-ear rec"} disabled={didRecord} onClick={startRecording}>
+                    <img src={ear} />
+                </button>
+
             </div>
-            <h1 className="app-title">ohr</h1>
-            <button className={didRecord ? "huge-ear" : "huge-ear rec"} disabled={didRecord} onClick={startRecording}>
-                <img src={ear} />
-            </button>
-           
-        </div>
-         {didRecord ?
-            <div className="btn-group btn-group-vertical grupped">
-                <button className='btn' onClick={playMyOhrBaby}>play</button>
-                <button className='btn' onClick={handleDiscard}>discard</button>
-                {/* TO DO */}
-                <button className='btn'>continue</button>
-            </div> : null}
-            </>
+            {didRecord ?
+                <div className="btn-group btn-group-vertical grupped">
+                    <button className='btn' onClick={playMyOhrBaby}>play</button>
+                    <button className='btn' onClick={handleDiscard}>discard</button>
+                    {/* TO DO */}
+                    <button className='btn'>continue</button>
+                </div> : null}
+        </>
     )
 }
 

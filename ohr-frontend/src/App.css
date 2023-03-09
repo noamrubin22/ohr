@@ -11,10 +11,14 @@
   color: rgb(195, 195, 195);
   display: flex;
   flex-direction: column;
+  background-image: repeating-linear-gradient(36deg, rgba(14, 14, 14, 0.1), rgba(255,255,255, 0.1) 1px, transparent 0px, transparent 2px);
+}
+.grad {
+  background-image: radial-gradient(circle, rgba(236, 13, 192, 0.598), rgba(27, 220, 91, 0.202), rgba(194, 255, 245, 0.048) );
 }
 
 body {
-  background-image: linear-gradient(to bottom right, #190241, #fd38d6);
+  background-image: linear-gradient(to bottom right, #170537, #d238fd);
 }
 
 li {
@@ -119,7 +123,7 @@ li {
   font-style: italic;
 }
 
-.huge-ear img{
+.huge-ear img {
   /* border: 2mm solid #190241; */
   height: 70vh;
   width: auto;

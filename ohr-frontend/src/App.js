@@ -1,6 +1,5 @@
 import './App.css';
 import ear from './accets/ohr2.png';
-
 import UpperNav from './components/upper-nav.jsx';
 import BottomNav from './components/bottom-nav.jsx';
 import Landing from './components/landing-view';
@@ -10,14 +9,14 @@ import { useMemo, useState } from 'react';
 import { clusterApiUrl } from '@solana/web3.js';
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 import {
-  GlowWalletAdapter,
-  LedgerWalletAdapter,
-  PhantomWalletAdapter,
-  SlopeWalletAdapter,
-  SolflareWalletAdapter,
-  SolletExtensionWalletAdapter,
-  SolletWalletAdapter,
-  TorusWalletAdapter,
+	GlowWalletAdapter,
+	LedgerWalletAdapter,
+	PhantomWalletAdapter,
+	SlopeWalletAdapter,
+	SolflareWalletAdapter,
+	SolletExtensionWalletAdapter,
+	SolletWalletAdapter,
+	TorusWalletAdapter,
 } from '@solana/wallet-adapter-wallets';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
@@ -32,46 +31,48 @@ require('@solana/wallet-adapter-react-ui/styles.css');
 
 
 function App() {
-  // you can use Mainnet, Devnet or Testnet here
-  const solNetwork = WalletAdapterNetwork.Mainnet;
-  const endpoint = useMemo(() => clusterApiUrl(solNetwork), [solNetwork]);
+	// you can use Mainnet, Devnet or Testnet here
+	const solNetwork = WalletAdapterNetwork.Mainnet;
+	const endpoint = useMemo(() => clusterApiUrl(solNetwork), [solNetwork]);
 
-  // to track the wallet connection 
-  const [connected, setConnected] = useState(false);
+	// to track the wallet connection 
+	const [connected, setConnected] = useState(false);
 
-  // initialise all the wallets you want to use
-  const wallets = useMemo(
-    () => [
-      new PhantomWalletAdapter(),
-      new GlowWalletAdapter(),
-      new SlopeWalletAdapter(),
-      new SolflareWalletAdapter({ solNetwork }),
-      new TorusWalletAdapter(),
-      new LedgerWalletAdapter(),
-      new SolletExtensionWalletAdapter(),
-      new SolletWalletAdapter(),
-    ],
-    [solNetwork]
-  );
+	// initialise all the wallets you want to use
+	const wallets = useMemo(
+		() => [
+			new PhantomWalletAdapter(),
+			new GlowWalletAdapter(),
+			new SlopeWalletAdapter(),
+			new SolflareWalletAdapter({ solNetwork }),
+			new TorusWalletAdapter(),
+			new LedgerWalletAdapter(),
+			new SolletExtensionWalletAdapter(),
+			new SolletWalletAdapter(),
+		],
+		[solNetwork]
+	);
 
-  return (
-    <ConnectionProvider endpoint={endpoint}>
-      <WalletProvider wallets={wallets} >
-        <WalletModalProvider>
-          <div className="App">
-            <UpperNav setConnected={setConnected} />
-            <div className="central-outer-container">
-              {!connected ?
-                <Landing ear={ear} />
-                :
-                <Recording ear={ear} />}
-            </div>
-            <BottomNav />
-          </div>
-        </WalletModalProvider>
-      </WalletProvider>
-    </ConnectionProvider>
-  );
+	return (
+		<ConnectionProvider endpoint={endpoint}>
+			<WalletProvider wallets={wallets} >
+				<WalletModalProvider>
+					<div className="App">
+						<div className="grad">
+							<UpperNav setConnected={setConnected} />
+							<div className="central-outer-container">
+								{!connected ?
+									<Landing ear={ear} />
+									:
+									<Recording ear={ear} />}
+							</div>
+							<BottomNav />
+						</div>
+					</div>
+				</WalletModalProvider>
+			</WalletProvider>
+		</ConnectionProvider>
+	);
 }
 
 export default App;
