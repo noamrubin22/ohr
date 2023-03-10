@@ -4,14 +4,14 @@ import { useMemo, useState } from 'react';
 import { clusterApiUrl } from '@solana/web3.js';
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 import {
-  GlowWalletAdapter,
-  LedgerWalletAdapter,
-  PhantomWalletAdapter,
-  SlopeWalletAdapter,
-  SolflareWalletAdapter,
-  SolletExtensionWalletAdapter,
-  SolletWalletAdapter,
-  TorusWalletAdapter,
+	GlowWalletAdapter,
+	LedgerWalletAdapter,
+	PhantomWalletAdapter,
+	SlopeWalletAdapter,
+	SolflareWalletAdapter,
+	SolletExtensionWalletAdapter,
+	SolletWalletAdapter,
+	TorusWalletAdapter,
 } from '@solana/wallet-adapter-wallets';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
