@@ -3,23 +3,31 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-three/fiber": "^8.11.9",
     "@solana/wallet-adapter-base": "^0.9.22",
     "@solana/wallet-adapter-react": "^0.15.30",
     "@solana/wallet-adapter-react-ui": "^0.9.29",
     "@solana/wallet-adapter-wallets": "^0.19.15",
     "@solana/web3.js": "^1.73.3",
+    "@testing-library/dom": "^9.0.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "daisyui": "^2.51.3",
+    "node-sass": "^8.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-native": "^0.71.3",
     "react-scripts": "5.0.1",
+    "three": "^0.150.1",
     "util": "^0.12.5",
     "web-vitals": "^2.1.4"
   },
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
+  },
   "scripts": {
-    "start": "GENERATE_SOURCEMAP=false react-app-rewired start",
+    "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject"
