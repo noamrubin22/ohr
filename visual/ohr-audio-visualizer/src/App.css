@@ -3,3 +3,10 @@
   height: 100vh;
 }
 
+Button {
+  position: absolute;
+  width: 10em;
+  height: 10em;
+  background-image: linear-gradient(to right, rgba(255, 187, 0, 1) 0%, rgba(185, 0, 252, 1) 100%);
+  z-index: 10000;
+}
