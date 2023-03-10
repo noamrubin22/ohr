@@ -150,6 +150,34 @@ li {
   transform: scale(1.02);
 }
 
+/* .sidebar {
+  background-color: rgba(35, 55, 75, 0.9);
+  color: #fff;
+  padding: 6px 12px;
+  font-family: monospace;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 12px;
+  border-radius: 4px;
+  } */
+
+.map {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%); 
+}
+
+.map-container {
+  width: 60vw;
+  height: 60vh;
+  border: 2mm solid black;
+}
+
+
 .grupped {
   position: absolute;
   top: 50%;
@@ -166,6 +194,13 @@ li {
   font-style: italic;
 }
 
+.visual {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
 /* extra fancy stuff */
 .glowing-border {
   animation: glow 3s ease-in-out infinite alternate;

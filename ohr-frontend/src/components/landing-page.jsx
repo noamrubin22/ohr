@@ -3,15 +3,18 @@ import UpperNav from "./upper-nav";
 import BottomNav from "./bottom-nav";
 import Landing from "./landing-view";
 import Recording from "./recording-view";
-import Visualisation from "./visualisation-view";
+import VisualisationAndCoords from "./visualisation-view";
+import Map from "./map";
 import { useState } from "react";
 
 import { useConnection, useWallet, } from '@solana/wallet-adapter-react';
 
 const LandingPage = () => {
 	const wallet = useWallet();
+
 	const [visualisationView, setVisualisationView] = useState(false);
 	const [blob, setBlob] = useState(null);
+	const [map, setMap] = useState(false);
 
 	const handleRec = (audioBlob) => {
 	  setBlob(audioBlob);
@@ -19,13 +22,15 @@ const LandingPage = () => {
 
 	return (
 		<div className="grad">
-			<UpperNav />
+			<UpperNav setMap={setMap} map={map}/>
 			<div className="central-outer-container">
-				{!wallet.publicKey
+				{map 
+				? <Map /> 
+				:!wallet.publicKey
 					? <Landing ear={ear} />
 					: !visualisationView
 						? <Recording ear={ear} setVisualisationView={setVisualisationView} onRecorded={handleRec}/>
-						: <Visualisation setVisualisationView={setVisualisationView} blob={blob}/>}
+						: <VisualisationAndCoords setVisualisationView={setVisualisationView} blob={blob}/>}
 			</div>
 			<BottomNav />
 		</div>
