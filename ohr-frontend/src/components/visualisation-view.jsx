@@ -1,3 +1,5 @@
+import GetLocation from "./get-location";
+import { useState } from "react";
 import { actions, utils, programs, NodeWallet} from '@metaplex/js'; 
 import { WalletAdapterNetwork, WalletNotConnectedError } from '@solana/wallet-adapter-base';
 import { clusterApiUrl, Transaction, SystemProgram, Keypair, LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js';
@@ -6,16 +8,17 @@ import { ConnectionProvider, WalletProvider, useConnection, useWallet } from '@s
 let thelamports = 0;
 let theWallet = "9m5kFDqgpf7Ckzbox91RYcADqcmvxW4MmuNvroD5H2r9"
 
-function Visualisation({ setVisualisationView, blob }) {
+
+const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
+
+    const [latitude, setLatitude] = useState(null);
+    const [longitude, setLongitude] = useState(null);
     const { connection } = useConnection();
     const { publicKey, sendTransaction } = useWallet();
     const web3 = require("@solana/web3.js");
 
     const bs58 = require('bs58');
     
-
-
-
     async function onClick()  {
 
         if (!publicKey) throw new WalletNotConnectedError();
@@ -39,12 +42,13 @@ function Visualisation({ setVisualisationView, blob }) {
 
     async function getPCM(b) {
         const url = URL.createObjectURL(b);
+        console.log(url)
         const audioContext = new AudioContext();
         const response = await fetch(url);
         const arrayBuffer = await response.arrayBuffer();
         const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+            console.log(audioBuffer);
         const pcm = audioBuffer.getChannelData(0);
-        //console.log(pcm, "vika console");
     }
     getPCM(blob);
 
@@ -57,10 +61,12 @@ function Visualisation({ setVisualisationView, blob }) {
 
     return (
         <div className="central-inner-container">
+            {/* <div className="visual">visualisation</div> */}
+            <GetLocation x={setLatitude} y={setLongitude} xx={latitude} yy={longitude}/>
             <button className="btn" onClick={onClick}>mint NFT</button>
             <button className="btn" onClick={handleBack}>back</button>
         </div>
     )
 }
 
-export default Visualisation;
+export default VisualisationAndCoords;
