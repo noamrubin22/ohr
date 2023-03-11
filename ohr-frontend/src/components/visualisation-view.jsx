@@ -19,9 +19,6 @@ const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
 
     const bs58 = require('bs58');
     
-
-
-
     async function onClick()  {
 
         if (!publicKey) throw new WalletNotConnectedError();
