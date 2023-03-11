@@ -174,7 +174,7 @@ li {
 .map-container {
   width: 60vw;
   height: 60vh;
-  border: 2mm solid black;
+  font-size: 0.01rem;
 }
 
 
