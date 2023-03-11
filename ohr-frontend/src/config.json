@@ -1,0 +1,23 @@
+{
+  "price": 1.0,
+  "number": 1,
+  "symbol": "",
+  "sellerFeeBasisPoints": 1,
+  "isMutable": true,
+  "isSequential": false,
+  "creators": [
+    {
+      "address": "AWqZXEGERvxGTgeTEenBaat4C1XPhzN2bTSMSfxrzwqc",
+      "share": 50
+    }
+  ],
+  "solTreasuryAccount": "AWqZXEGERvxGTgeTEenBaat4C1XPhzN2bTSMSfxrzwqc",
+  "uploadMethod": "nft_storage",
+  "awsConfig": null,
+  "nftStorageAuthToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweEE5YTVFM0FkZDQ4QTk3MmIzNDhkMUU0ZkQ5QjMyOTA0OWM1ZTliYzkiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY3ODQzMjMwNjE2NywibmFtZSI6Ik1ldGFwbGV4In0.OXdfffovx_4GG4D9_9Ycghj2sqXcESsbjImXVGRCcsQ",
+  "shdwStorageAccount": null,
+  "pinataConfig": null,
+  "hiddenSettings": null,
+  "guards": null,
+   "goLiveDate": "now"
+}

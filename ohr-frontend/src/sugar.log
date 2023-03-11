@@ -1,0 +1,2 @@
+{"v":0,"name":"sugar","msg":"Lend me some sugar, I am your neighbor.","level":30,"hostname":"nino-ThinkPad-L460","pid":20849,"time":"2023-03-10T07:30:01.148880981Z","target":"sugar","line":123,"file":"src/main.rs"}
+{"v":0,"name":"sugar","msg":"Cache exists, loading...","level":30,"hostname":"nino-ThinkPad-L460","pid":20849,"time":"2023-03-10T07:30:01.166862737Z","target":"sugar_cli::cache","line":161,"file":"src/cache.rs"}
