@@ -34,7 +34,7 @@ const Recording = ({ ear, setVisualisationView, onRecorded }) => {
         mediaRecorder.start();
         setTimeout(() => {
             mediaRecorder.stop();
-        }, 5000);
+        }, 3000);
     };
 
     const playMyOhrBaby = async () => {
