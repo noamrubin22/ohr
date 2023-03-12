@@ -17,6 +17,7 @@
 a {
   color: rgb(195, 195, 195);
 }
+
 .grad {
   background-image: radial-gradient(circle, rgba(236, 13, 192, 0.598), rgba(27, 220, 91, 0.202), rgba(194, 255, 245, 0.048));
 }
@@ -73,9 +74,13 @@ li {
 }
 
 .py-4 {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   text-align: justify;
-  /* font-size: 1.2em; */
+  font-size: 1.2rem;
+}
+
+.py-4 h1 {
+  font-size: 1.6rem;
+  margin-bottom: 2%;
 }
 
 .blue {
@@ -208,14 +213,7 @@ canvas {
   background-color: #191D24;
 }
 
-/* 
-.visual {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  
+
 .vis-btns {
   display: flex;
   flex-direction: column;
@@ -286,3 +284,4 @@ canvas {
     width: 60vw;
     height: 45vh;
   }
+}
