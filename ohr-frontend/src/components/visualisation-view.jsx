@@ -34,9 +34,9 @@ const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
             wallet: new NodeWallet(Keypair.fromSecretKey(secretKey.secretKey)),
             uri: 'https://www.arweave.net/1r-ImuiIxFl18UQolAoBnwLDMVcjkVAHruhtsaBpA7U?ext=json',
             maxSupply: 1
-          }).catch(e=>console.error(e, "erroooooor"));
-        });
-    }
+          }).catch(e=>console.error(e,));
+        };
+    
 
     async function getPCM(b) {
         const url = URL.createObjectURL(b);
@@ -61,11 +61,11 @@ const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
         <div className="central-inner-container">
             <div className="vis-btns">
                 <GetLocation x={setLatitude} y={setLongitude} xx={latitude} yy={longitude} />
-                <button className="btn btn-ghost big" onClick={onClick}>mint NFT</button>
+                <button className="btn btn-ghost big" onClick={(e) => console.log("minting will work soon")}>mint NFT</button>
                 <button className="btn btn-ghost" onClick={handleBack}>back</button>
             </div>
         </div>
     )
-}
 
+    }
 export default VisualisationAndCoords;
