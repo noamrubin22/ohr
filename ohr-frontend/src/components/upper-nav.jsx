@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import ConnectionButton from "./connection-button";
 import Map from "./map";
 

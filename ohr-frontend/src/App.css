@@ -17,6 +17,7 @@
 a {
   color: rgb(195, 195, 195);
 }
+
 .grad {
   background-image: radial-gradient(circle, rgba(236, 13, 192, 0.598), rgba(27, 220, 91, 0.202), rgba(194, 255, 245, 0.048));
 }
@@ -73,9 +74,13 @@ li {
 }
 
 .py-4 {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   text-align: justify;
-  /* font-size: 1.2em; */
+  font-size: 1.2rem;
+}
+
+.py-4 h1 {
+  font-size: 1.6rem;
+  margin-bottom: 2%;
 }
 
 .blue {
@@ -146,14 +151,8 @@ li {
 }
 
 .rec {
-  /* transition: transform .3s; */
   position: relative;
 }
-
-/* .rec:hover {
-  cursor: pointer;
-  transform: scale(1.02);
-} */
 
 .rec:hover {
   animation: rec 1s ease-in-out infinite alternate;
@@ -208,14 +207,6 @@ canvas {
   background-color: #191D24;
 }
 
-/* 
-.visual {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  
 .vis-btns {
   display: flex;
   flex-direction: column;
@@ -223,9 +214,7 @@ canvas {
   margin-left: auto;
   margin-right: auto;
   justify-content: center;
-  // border:2mm solid #010101; 
 }
-*/
 
 
 .big {
@@ -282,7 +271,6 @@ canvas {
     height: 42vh;
     padding-left: 20px;
   }
-
 
   canvas {
     width: 60vw;
