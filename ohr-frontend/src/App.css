@@ -194,6 +194,18 @@ li {
   font-style: italic;
 }
 
+.CanvasVisual {
+  margin: 30px;
+}
+
+canvas {
+  margin: 0 auto;
+  width: 40vw;
+  height: 30vw;
+  background-color: #191D24;
+  border: 0;
+  border-radius: 0;
+}
 .visual {
   position: absolute;
   top: 50%;
