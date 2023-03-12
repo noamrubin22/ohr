@@ -102,8 +102,8 @@ li {
 /* landing */
 .app-title {
   width: 80px;
-  margin-left: 22%;
-  margin-top: -2%;
+  margin-left: 24%;
+  margin-top: -1%;
   font-size: 4.5rem;
   word-break: break-all;
   color: #e60073 ;
@@ -114,8 +114,8 @@ li {
 
 .app-title-top {
   width: 80px;
-  margin-left: 22.8%;
-  margin-top: -1.2%;
+  margin-left: 24.8%;
+  margin-top: -0.2%;
   font-size: 4.5rem;
   word-break: break-all;
   color: #64ed14;
@@ -141,7 +141,7 @@ li {
 
 .huge-ear img {
   /* border: 2mm solid #190241; */
-  height: 70vh;
+  height: 52vh;
   width: auto;
 }
 
@@ -252,20 +252,23 @@ canvas {
 @media only screen and (max-width: 768px) {
   .central-inner-container {
     height: 70vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
   }
 
   .app-title {
     width: 20px;
     font-size: 3.5rem;
     margin-left: 0%;
-    margin-top: -6.2%;
+    margin-top: -16.2%;
   }
 
   .app-title-top {
     margin-left: 0.7%;
     width: 20px;
     font-size: 3.5rem;
-    margin-top: -4.5%
+    margin-top: -14.5%
   }
 
   .rec-helpers {
@@ -274,6 +277,10 @@ canvas {
     width: 60px;
     text-align: end;
     font-size: medium;
+  }
+  .huge-ear img {
+    height: 42vh;
+    padding-left: 20px
   }
 
 }
