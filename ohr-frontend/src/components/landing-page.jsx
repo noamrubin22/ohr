@@ -14,7 +14,6 @@ const LandingPage = () => {
 
 	const [visualisationView, setVisualisationView] = useState(false);
 	const [blob, setBlob] = useState(null);
-	const [map, setMap] = useState(false);
 
 	const handleRec = (audioBlob) => {
 	  setBlob(audioBlob);
@@ -22,11 +21,9 @@ const LandingPage = () => {
 
 	return (
 		<div className="grad">
-			<UpperNav setMap={setMap} map={map}/>
+			<UpperNav />
 			<div className="central-outer-container">
-				{map 
-				? <Map /> 
-				:!wallet.publicKey
+				{!wallet.publicKey
 					? <Landing ear={ear} />
 					: !visualisationView
 						? <Recording ear={ear} setVisualisationView={setVisualisationView} onRecorded={handleRec}/>

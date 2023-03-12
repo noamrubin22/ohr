@@ -151,14 +151,8 @@ li {
 }
 
 .rec {
-  /* transition: transform .3s; */
   position: relative;
 }
-
-/* .rec:hover {
-  cursor: pointer;
-  transform: scale(1.02);
-} */
 
 .rec:hover {
   animation: rec 1s ease-in-out infinite alternate;
@@ -213,7 +207,6 @@ canvas {
   background-color: #191D24;
 }
 
-
 .vis-btns {
   display: flex;
   flex-direction: column;
@@ -221,8 +214,8 @@ canvas {
   margin-left: auto;
   margin-right: auto;
   justify-content: center;
-  /* border:2mm solid #010101; */
 }
+
 
 .big {
   font-size: 2.5rem;
@@ -278,7 +271,6 @@ canvas {
     height: 42vh;
     padding-left: 20px;
   }
-
 
   canvas {
     width: 60vw;
