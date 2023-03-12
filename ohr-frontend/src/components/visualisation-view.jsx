@@ -12,7 +12,7 @@ import env from "react-dotenv";
 let thelamports = 0;
 let theWallet = "9m5kFDqgpf7Ckzbox91RYcADqcmvxW4MmuNvroD5H2r9";
 
-const pixelSize = 10;
+const pixelSize = 20;
 
 const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
     // coordinates
