@@ -223,8 +223,10 @@ canvas {
   margin-left: auto;
   margin-right: auto;
   justify-content: center;
-  /* border:2mm solid #010101; */
+  // border:2mm solid #010101; 
 }
+*/
+
 
 .big {
   font-size: 2.5rem;
@@ -286,3 +288,4 @@ canvas {
     width: 60vw;
     height: 45vh;
   }
+}
