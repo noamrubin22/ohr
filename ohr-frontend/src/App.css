@@ -197,7 +197,6 @@ li {
   font-style: italic;
 }
 
-<<<<<<< HEAD
 .CanvasVisual {
   margin: 30px;
 }
@@ -216,7 +215,7 @@ canvas {
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
-=======
+}
 .vis-btns {
   display: flex;
   flex-direction: row;
@@ -225,7 +224,6 @@ canvas {
   margin-right: auto;
   justify-content: end;
   /* border:2mm solid #010101; */
->>>>>>> 4b1f892af600024c0201848e64ed56fc19080452
 }
 
 .big {
@@ -280,7 +278,7 @@ canvas {
   }
   .huge-ear img {
     height: 42vh;
-    padding-left: 20px
+    padding-left: 20px;
   }
 
 }
