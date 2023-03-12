@@ -215,8 +215,7 @@ canvas {
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
-} */
-
+  
 .vis-btns {
   display: flex;
   flex-direction: column;
@@ -279,12 +278,11 @@ canvas {
   }
   .huge-ear img {
     height: 42vh;
-    padding-left: 20px
+    padding-left: 20px;
   }
+
 
   canvas {
     width: 60vw;
     height: 45vh;
   }
-
-}

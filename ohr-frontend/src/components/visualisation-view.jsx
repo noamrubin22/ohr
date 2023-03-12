@@ -97,10 +97,7 @@ const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
     };
 
     const handleBack = () => {
-        const confirmed = window.confirm("Are you sure?");
-        if (confirmed) {
-            setVisualisationView(false);
-        }
+        setVisualisationView(false);
     };
 
     return (
