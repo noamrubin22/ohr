@@ -14,6 +14,9 @@
   background-image: repeating-linear-gradient(36deg, rgba(14, 14, 14, 0.1), rgba(255, 255, 255, 0.1) 1px, transparent 0px, transparent 2px);
 }
 
+a {
+  color: rgb(195, 195, 195);
+}
 .grad {
   background-image: radial-gradient(circle, rgba(236, 13, 192, 0.598), rgba(27, 220, 91, 0.202), rgba(194, 255, 245, 0.048));
 }
@@ -29,6 +32,7 @@ li {
 .btn {
   border-radius: 25mm;
   border: none;
+  text-shadow: 2px 2px #1d014e;
 }
 
 .btn-ghost:hover {
@@ -142,26 +146,25 @@ li {
 }
 
 .rec {
-  transition: transform .3s;
+  /* transition: transform .3s; */
+  position: relative;
 }
 
-.rec:hover {
+/* .rec:hover {
   cursor: pointer;
   transform: scale(1.02);
+} */
+
+.rec:hover {
+  animation: rec 1s ease-in-out infinite alternate;
 }
 
-/* .sidebar {
-  background-color: rgba(35, 55, 75, 0.9);
-  color: #fff;
-  padding: 6px 12px;
-  font-family: monospace;
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 12px;
-  border-radius: 4px;
-  } */
+@keyframes rec {
+  from {opacity: 0.8;
+    transform: scale(1);}
+  to {opacity: 0.4;
+    transform: scale(1.02);}
+}
 
 .map {
   position: absolute;
@@ -194,6 +197,7 @@ li {
   font-style: italic;
 }
 
+<<<<<<< HEAD
 .CanvasVisual {
   margin: 30px;
 }
@@ -212,7 +216,24 @@ canvas {
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
+=======
+.vis-btns {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: end;
+  /* border:2mm solid #010101; */
+>>>>>>> 4b1f892af600024c0201848e64ed56fc19080452
 }
+
+.big {
+  font-size: 2.5rem;
+  color: #64ed14;
+  text-shadow: 3px 3px #1d014e;
+}
+
 /* extra fancy stuff */
 .glowing-border {
   animation: glow 3s ease-in-out infinite alternate;

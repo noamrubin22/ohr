@@ -24,7 +24,7 @@ function BottomNav() {
             <div className="flex-none gap-2">
                 <div className="flex-1">
                     {/* here the twitter link will go*/}
-                    <a className="btn btn-ghost text-xl fa-brands fa-twitter blue" href='https://twitter.com/intent/tweet' target="_blank" rel="noopener noreferrer"></a>
+                    <a className="btn btn-ghost text-xl fa-brands fa-twitter blue" href='https://twitter.com/ohr_xyz' target="_blank" rel="noopener noreferrer"></a>
                 </div>
             </div>
         </div>
