@@ -6,7 +6,7 @@ import { clusterApiUrl, Transaction, SystemProgram, Keypair, LAMPORTS_PER_SOL, P
 import { ConnectionProvider, WalletProvider, useConnection, useWallet } from '@solana/wallet-adapter-react';
 
 //import CanvasVisual from "./canvas";
-import '../App.css'
+
 import env from "react-dotenv";
 
 let thelamports = 0;
@@ -29,7 +29,7 @@ const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
     const [pcm, setPcm] = useState(null);
     const [ctx, setCtx] = useState(null);
     const canvas = useRef();
-   
+
 
     // draw rectangle with background
     const drawPixel = (info, style = {}) => {
@@ -71,9 +71,9 @@ const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
             //lets say we well have 10 by 10 grid
             //we will give each square a color
             for (let i = 0; i < 30; i++) {
-                for(let j = 0; j < 30; j++) {
-                   const square = { x: i * pixelSize, y: j * pixelSize, w: pixelSize, h: pixelSize };
-                    drawPixel(square, { backgroundColor: colors[(i + j*30) % colors.length] });
+                for (let j = 0; j < 30; j++) {
+                    const square = { x: i * pixelSize, y: j * pixelSize, w: pixelSize, h: pixelSize };
+                    drawPixel(square, { backgroundColor: colors[(i + j * 30) % colors.length] });
                 }
             }
         }
@@ -108,9 +108,11 @@ const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
             <div className="CanvasVisual">
                 <canvas ref={canvas} height="500" width="500" />
             </div>
-            <GetLocation x={setLatitude} y={setLongitude} xx={latitude} yy={longitude} />
-            <button className="btn" onClick={onClick}>mint NFT</button>
-            <button className="btn" onClick={handleBack}>back</button>
+            <div className="vis-btns">
+                <GetLocation x={setLatitude} y={setLongitude} xx={latitude} yy={longitude} />
+                <button className="btn btn-ghost big" onClick={onClick}>mint NFT</button>
+                <button className="btn btn-ghost" onClick={handleBack}>back</button>
+            </div>
         </div >
     )
 

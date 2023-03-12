@@ -203,28 +203,27 @@ li {
 
 canvas {
   margin: 0 auto;
-  width: 40vw;
+  width: 30vw;
   height: 30vw;
   background-color: #191D24;
-  border: 0;
-  border-radius: 0;
 }
 
+/* 
 .visual {
   position: absolute;
   top: 50%;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
-}
+} */
 
 .vis-btns {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  justify-content: end;
+  justify-content: center;
   /* border:2mm solid #010101; */
 }
 
@@ -274,6 +273,11 @@ canvas {
     width: 60px;
     text-align: end;
     font-size: medium;
+  }
+
+  canvas {
+    width: 60vw;
+    height: 45vh;
   }
 
 }
