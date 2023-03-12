@@ -60,12 +60,19 @@ const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
     }, []);
 
     useEffect(() => {
+        // taken from https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+        function componentToHex(c) {
+            var hex = c.toString(16);
+            return hex.length == 1 ? "0" + hex : hex;
+        }
+        function rgbToHex(r, g, b) {
+            return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+        }
         if (pcm) {
             let colors = [];
-            for (let x = 2000; x <= 2010; x++) {
-                const colorStr = pcm[x].toString();
-                const hash = "#" + colorStr.substring(colorStr.length - 6);
-                colors.push(hash);
+            for (let x = 2000; x <= 2020; x++) {
+                const colorStr = rgbToHex(Math.floor(Math.abs(pcm[x]) * 100000000) % 256, Math.floor(Math.abs(pcm[x]) * 10000000000) % 256, Math.floor(Math.abs(pcm[x]) * 1000000000000) % 256);
+                colors.push(colorStr);
             }
             console.log(colors);
             //lets say we'll have 30 by 30 grid
