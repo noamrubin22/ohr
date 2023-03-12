@@ -68,7 +68,7 @@ const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
                 colors.push(hash);
             }
             console.log(colors);
-            //lets say we well have 10 by 10 grid
+            //lets say we'll have 30 by 30 grid
             //we will give each square a color
             for (let i = 0; i < 30; i++) {
                 for (let j = 0; j < 30; j++) {
