@@ -65,12 +65,17 @@ li {
 
 .modal {
   background-color: rgba(128, 224, 224, 0.0);
+  backdrop-filter: blur(8px);
 }
 
 .modal-box {
   box-shadow: 10px 10px 160px 140px rgb(34, 34, 34);
   color: rgb(192, 192, 192);
   background-color: rgb(34, 34, 34);
+}
+
+.m-box {
+  
 }
 
 .py-4 {
@@ -129,25 +134,26 @@ li {
   position: absolute;
 }
 
-/* recording */
-.rec-helpers {
-  width: 80px;
-  font-size: large;
-  text-align: start;
-  position: absolute;
-  margin-left: 72%;
-  margin-top: 14%;
+.timer {
+  font-style: italic;
+  font-size: 4.5em;
+  margin-bottom: 2%; 
 }
 
 .text {
   opacity: 0.5;
   font-style: italic;
+  width: 15%;
+  margin: auto;
+  margin-top: 3%;
+  text-align: justify;
 }
 
 .huge-ear img {
   /* border: 2mm solid #190241; */
   height: 52vh;
   width: auto;
+  margin: auto;
 }
 
 .rec {
@@ -178,7 +184,6 @@ li {
   height: 60vh;
   font-size: 0.01rem;
 }
-
 
 .grupped {
   position: absolute;
@@ -260,20 +265,23 @@ canvas {
     margin-top: -14.5%
   }
 
-  .rec-helpers {
-    margin-left: 82%;
-    margin-top: 30%;
-    width: 60px;
-    text-align: end;
-    font-size: medium;
-  }
   .huge-ear img {
     height: 42vh;
     padding-left: 20px;
   }
 
+  .text {
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 6%;
+    text-align: center;
+    font-size: small;
+    text-align: justify;
+  }
+
   canvas {
-    width: 60vw;
-    height: 45vh;
+    width: 280px;
+    height: 280px;
   }
 }
+

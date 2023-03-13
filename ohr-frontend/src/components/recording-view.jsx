@@ -1,9 +1,11 @@
 import { isWalletAdapterCompatibleStandardWallet } from '@solana/wallet-adapter-base';
 import React, { useState } from 'react';
+import Timer from './timer';
 
 // for now it's working on click (no holding)
 // it stops automaticaly after 10 sec
 const Recording = ({ ear, setVisualisationView, onRecorded }) => {
+
     const [recording, setRecording] = useState(false);
     const [didRecord, setDidRecord] = useState(false);
     const [recUrl, setRecUrl] = useState(null);
@@ -22,7 +24,7 @@ const Recording = ({ ear, setVisualisationView, onRecorded }) => {
         mediaRecorder.onstop = async function (e) {
             console.log("RECORDING STOPPED");
             // BLOB
-            const audioBlob = new Blob(chunks, { 'type' : 'audio/wav; codecs=0' });
+            const audioBlob = new Blob(chunks, { 'type': 'audio/wav; codecs=0' });
             // URL
             const recUrl = URL.createObjectURL(audioBlob);
 
@@ -43,7 +45,7 @@ const Recording = ({ ear, setVisualisationView, onRecorded }) => {
             audio.play();
         }
     }
-    
+
     const handleDiscard = () => {
         const confirmed = window.confirm("Are you sure you want to discard your audio?");
         if (confirmed) {
@@ -60,15 +62,13 @@ const Recording = ({ ear, setVisualisationView, onRecorded }) => {
     return (
         <>
             <div className="central-inner-container">
-                <div className="rec-helpers">
-                    <p className='text'>press and hold the ear to record a sound</p>
-                    {/* <p className='timer'>[timer]</p> */}
-                </div>
-                <h1 className="app-title">ohr</h1>
-                <h1 className="app-title-top">ohr</h1>
+                <Timer recording={recording} recUrl={recUrl} />
+                <h1 className="app-title">øhr</h1>
+                <h1 className="app-title-top">øhr</h1>
                 <button className={didRecord ? "huge-ear" : "huge-ear rec"} disabled={didRecord} onClick={startRecording}>
                     <img src={ear} />
                 </button>
+                    <p className='text'>press and hold the ear to record a sound</p>
             </div>
             {didRecord ?
                 <div className="btn-group btn-group-vertical grupped">
