@@ -1,4 +1,4 @@
-import Map from "./map";
+import GeoMap from "./geo-map";
 
 function MapView({ setView }) {
   return (
@@ -8,7 +8,7 @@ function MapView({ setView }) {
           do you want to add your location?
         </h1>
         <div>
-          <Map class={"map-container-flow"} />
+          <GeoMap style="map-container-flow" />
         </div>
         <div>
           <button className="btn" onClick={() => setView("visual")}>

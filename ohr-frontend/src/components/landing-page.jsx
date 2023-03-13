@@ -1,4 +1,4 @@
-import ear from "../accets/ohr2.png";
+import ear from "../assets/ohr2.png";
 import UpperNav from "./upper-nav";
 import BottomNav from "./bottom-nav";
 import Landing from "./landing-view";
