@@ -15,7 +15,6 @@ const LandingPage = () => {
   const wallet = useWallet();
 
   const [view, setView] = useState("");
-  const [visualisationView, setVisualisationView] = useState(false);
   const [blob, setBlob] = useState(null);
 
   const handleRec = (audioBlob) => {
@@ -29,38 +28,20 @@ const LandingPage = () => {
       view !== "map" &&
       view !== "visual" &&
       setView("recording");
-  });
-
-  useEffect(() => {
-    console.log(view);
-  }, [view]);
+  }, [wallet.publicKey, view]);
 
   switch (view) {
     case "recording":
       componentToRender = (
-        <Recording
-          ear={ear}
-          setVisualisationView={setVisualisationView}
-          onRecorded={handleRec}
-          setView={setView}
-        />
+        <Recording ear={ear} onRecorded={handleRec} setView={setView} />
       );
       break;
     case "map":
-      componentToRender = (
-        <MapView
-          setVisualisationView={setVisualisationView}
-          blob={blob}
-          setView={setView}
-        />
-      );
+      componentToRender = <MapView blob={blob} setView={setView} />;
       break;
     case "visual":
       componentToRender = (
-        <VisualisationAndCoords
-          setVisualisationView={setVisualisationView}
-          blob={blob}
-        />
+        <VisualisationAndCoords blob={blob} setView={setView} />
       );
       break;
     default:
