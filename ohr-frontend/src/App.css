@@ -226,6 +226,10 @@ li {
   font-size: 0.01rem;
 }
 
+.mapboxgl-ctrl-attrib-inner {
+  display: none;
+}
+
 .grupped {
   position: absolute;
   top: 50%;
@@ -352,9 +356,5 @@ canvas {
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-  }
-
-  .mapboxgl-ctrl-attrib-inner {
-    display: none;
   }
 }
