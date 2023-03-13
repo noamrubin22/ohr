@@ -242,7 +242,7 @@ canvas {
   margin: 0 auto;
   width: 30vw;
   height: 30vw;
-  background-color: #191d24;
+  background-color: rgba(128, 224, 224, 0.0);
   outline: #191d24 3px solid;
   box-shadow: 5px 5px 5px rgb(34, 34, 34);
 }
