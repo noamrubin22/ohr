@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Gajraj+One&family=Tilt+Warp&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Gajraj+One&family=Tilt+Warp&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,11 +7,17 @@
   margin: 0;
   padding: 0;
   text-align: center;
-  font-family: 'Gajraj One', cursive;
+  font-family: "Gajraj One", cursive;
   color: rgb(195, 195, 195);
   display: flex;
   flex-direction: column;
-  background-image: repeating-linear-gradient(36deg, rgba(14, 14, 14, 0.1), rgba(255, 255, 255, 0.1) 1px, transparent 0px, transparent 2px);
+  background-image: repeating-linear-gradient(
+    36deg,
+    rgba(14, 14, 14, 0.1),
+    rgba(255, 255, 255, 0.1) 1px,
+    transparent 0px,
+    transparent 2px
+  );
 }
 
 a {
@@ -19,7 +25,12 @@ a {
 }
 
 .grad {
-  background-image: radial-gradient(circle, rgba(236, 13, 192, 0.598), rgba(27, 220, 91, 0.202), rgba(194, 255, 245, 0.048));
+  background-image: radial-gradient(
+    circle,
+    rgba(236, 13, 192, 0.598),
+    rgba(27, 220, 91, 0.202),
+    rgba(194, 255, 245, 0.048)
+  );
 }
 
 body {
@@ -27,7 +38,7 @@ body {
 }
 
 li {
-  font-family: 'Tilt Warp', cursive;
+  font-family: "Tilt Warp", cursive;
 }
 
 .btn {
@@ -37,7 +48,7 @@ li {
 }
 
 .btn-ghost:hover {
-  background-color: rgba(128, 224, 224, 0.0);
+  background-color: rgba(128, 224, 224, 0);
   font-style: italic;
 }
 
@@ -56,7 +67,7 @@ li {
 }
 
 .navbar {
-  background-color: rgba(128, 224, 224, 0.0);
+  background-color: rgba(128, 224, 224, 0);
   height: 10vh;
   text-shadow: 3px 3px #1d014e;
   padding-top: 2%;
@@ -64,7 +75,7 @@ li {
 }
 
 .modal {
-  background-color: rgba(128, 224, 224, 0.0);
+  background-color: rgba(128, 224, 224, 0);
   backdrop-filter: blur(8px);
 }
 
@@ -77,7 +88,7 @@ li {
 .py-4 {
   text-align: start;
   font-size: 1.2rem;
-  font-family: 'Tilt Warp', cursive;
+  font-family: "Tilt Warp", cursive;
 }
 
 .py-4 h1 {
@@ -92,7 +103,7 @@ li {
 
 /* middle */
 .central-outer-container {
-  height: 80vh;
+  height: 69vh;
   width: 100vw;
   position: relative;
 }
@@ -107,13 +118,27 @@ li {
 }
 
 /* landing */
+.title {
+  font-size: 3.5rem;
+  color: #64ed14;
+  font-style: italic;
+  text-shadow: 3px 3px #010101;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  text-shadow: 3px 3px #010101;
+  font-style: italic;
+  margin: 0rem;
+}
+
 .app-title {
   width: 80px;
   margin-left: 24%;
   margin-top: -1%;
   font-size: 4.5rem;
   word-break: break-all;
-  color: #e60073 ;
+  color: #e60073;
   text-shadow: 3px 3px #010101;
   font-style: italic;
   position: absolute;
@@ -134,7 +159,8 @@ li {
 .timer {
   font-style: italic;
   font-size: 4.5em;
-  margin-bottom: 1.5%; 
+  margin-top: 2rem;
+  margin-bottom: 1.5%;
 }
 
 .text {
@@ -161,11 +187,21 @@ li {
   animation: rec 1s ease-in-out infinite alternate;
 }
 
+/* mapview */
+.map-view-container {
+  width: 20%;
+  height: 20vh;
+}
+
 @keyframes rec {
-  from {opacity: 0.8;
-    transform: scale(1);}
-  to {opacity: 0.4;
-    transform: scale(1.02);}
+  from {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0.4;
+    transform: scale(1.02);
+  }
 }
 
 .map {
@@ -173,7 +209,7 @@ li {
   top: 50%;
   left: 50%;
   margin-right: -50%;
-  transform: translate(-50%, -50%); 
+  transform: translate(-50%, -50%);
 }
 
 .map-container {
@@ -191,7 +227,7 @@ li {
   width: 80%;
   box-shadow: 10px 10px 220px 50px rgb(140, 0, 199);
   border-radius: 5%;
-  background-color: #191D24;
+  background-color: #191d24;
 }
 
 .btn-group button:hover {
@@ -206,7 +242,9 @@ canvas {
   margin: 0 auto;
   width: 30vw;
   height: 30vw;
-  background-color: rgba(128, 224, 224, 0.0)
+  background-color: rgba(128, 224, 224, 0.0);
+  outline: #191d24 3px solid;
+  box-shadow: 5px 5px 5px rgb(34, 34, 34);
 }
 
 .vis-btns {
@@ -217,7 +255,6 @@ canvas {
   margin-right: auto;
   justify-content: center;
 }
-
 
 .big {
   font-size: 2.5rem;
@@ -232,20 +269,39 @@ canvas {
 
 @keyframes glow {
   from {
-    box-shadow: 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #fd9d02;
+    box-shadow: 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073,
+      0 0 60px #fd9d02;
   }
 
   to {
-    box-shadow: 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ac4dff;
+    box-shadow: 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #ff4da6,
+      0 0 60px #ff4da6, 0 0 70px #ac4dff;
   }
 }
 
 @media only screen and (max-width: 768px) {
+  .central-outer-container {
+    height: 70vh;
+  }
   .central-inner-container {
     height: 70vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
+  }
+
+  .title {
+    font-size: 2rem;
+    color: #64ed14;
+    font-style: italic;
+    text-shadow: 3px 3px #010101;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    text-shadow: 3px 3px #010101;
+    font-style: italic;
+    margin: 0rem;
   }
 
   .app-title {
@@ -259,7 +315,7 @@ canvas {
     margin-left: 0.7%;
     width: 20px;
     font-size: 3.5rem;
-    margin-top: -14.5%
+    margin-top: -14.5%;
   }
 
   .huge-ear img {
@@ -281,4 +337,3 @@ canvas {
     height: 280px;
   }
 }
-

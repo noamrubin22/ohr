@@ -1,6 +1,7 @@
 {
   "name": "ohr-frontend",
   "version": "0.1.0",
+  "homepage": "https://noamrubin22.github.io/ohr",
   "private": true,
   "dependencies": {
     "@metaplex-foundation/js": "^0.18.3",
@@ -32,6 +33,7 @@
   "scripts": {
     "start": "set GENERATE_SOURCEMAP=false && react-app-rewired start",
     "build": "react-app-rewired build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject"
@@ -66,7 +68,6 @@
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
     "tailwindcss": "^3.2.7",
-    "url": "^0.11.0",
-    "homepage": "https://noamrubin22.github.io/ohr"
+    "url": "^0.11.0"
   }
 }
