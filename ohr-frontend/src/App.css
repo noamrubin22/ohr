@@ -206,7 +206,8 @@ canvas {
   margin: 0 auto;
   width: 30vw;
   height: 30vw;
-  background-color: #191D24;
+  outline: #191D24 3px solid;
+  box-shadow: 5px 5px 5px rgb(34, 34, 34);;
 }
 
 .vis-btns {
