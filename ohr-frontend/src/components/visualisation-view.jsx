@@ -2,34 +2,63 @@ import GetLocation from "./get-location";
 import { React, useState, useRef, useEffect } from "react";
 import { actions, utils, programs, NodeWallet } from '@metaplex/js';
 import { WalletAdapterNetwork, WalletNotConnectedError } from '@solana/wallet-adapter-base';
-import { clusterApiUrl, Transaction, SystemProgram, Keypair, LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js';
+import { clusterApiUrl, Transaction, SystemProgram, Keypair, LAMPORTS_PER_SOL, PublicKey, Connection} from '@solana/web3.js';
 import { ConnectionProvider, WalletProvider, useConnection, useWallet } from '@solana/wallet-adapter-react';
+import * as solanaWeb3 from "@solana/web3.js";
+const { struct, u32, ns64 } = require("@solana/buffer-layout");
+const { Buffer } = require("buffer");
 
-//import CanvasVisual from "./canvas";
 
-import env from "react-dotenv";
+const pixelSize = 6.8;
 
-let thelamports = 0;
-let theWallet = "9m5kFDqgpf7Ckzbox91RYcADqcmvxW4MmuNvroD5H2r9";
-
-const pixelSize = 20;
 
 const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
+   // const { Keypair } = require("@solana/web3.js");
+    const web3 = require("@solana/web3.js");
+
+    const wallet = new Keypair()
+    
+    const publicKey = new PublicKey(wallet._keypair.publicKey)                
+    const secretKey = wallet._keypair.secretKey
+    const connection = new Connection(clusterApiUrl('devnet'),'confirmed')
+
+    const getWalletBalance = async() => {
+        try{
+            const connection = new Connection(clusterApiUrl('devnet'),'confirmed')
+            const walletBalance = await connection.getBalance(publicKey)
+            console.log(`Wallet Balance is ${walletBalance}`)
+        }
+        catch(er){
+            console.log(er)
+        }
+    }
+    
+    const airDropSol = async() =>{
+        try{
+            const connection = new Connection(clusterApiUrl('devnet'),'confirmed')
+            const fromAirDropSignature = await connection.requestAirdrop(publicKey, 1 * LAMPORTS_PER_SOL)
+            const latestBlockHash = await connection.getLatestBlockhash();
+
+            await connection.confirmTransaction({
+                blockhash: latestBlockHash.blockhash,
+                lastValidBlockHeight: latestBlockHash.lastValidBlockHeight,
+                signature: fromAirDropSignature,
+              });    
+        }catch(er){
+            console.log('Error Here: '+er)
+        }
+    }
     // coordinates
     const [latitude, setLatitude] = useState(null);
     const [longitude, setLongitude] = useState(null);
-
     // minting
-    const { connection } = useConnection();
-    const { publicKey, sendTransaction } = useWallet();
-    const web3 = require("@solana/web3.js");
+    //const { publicKey, sendTransaction } = useWallet();
+    //const web3 = require("@solana/web3.js");
     const bs58 = require('bs58');
-
     // visuals
     const [pcm, setPcm] = useState(null);
     const [ctx, setCtx] = useState(null);
     const canvas = useRef();
-
 
     // draw rectangle with background
     const drawPixel = (info, style = {}) => {
@@ -57,30 +86,36 @@ const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
         // get context of the canvas
         setCtx(canvasEle.getContext("2d"));
         getPCM(blob);
+        console.log(solanaWeb3, "webthree")
     }, []);
 
     useEffect(() => {
         // taken from https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
         function componentToHex(c) {
-            const hex = c.toString(16);
+            var hex = c.toString(16);
             return hex.length == 1 ? "0" + hex : hex;
         }
         function rgbToHex(r, g, b) {
             return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
         }
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
         if (pcm) {
             let colors = [];
-            for (let x = 3000; x <= 3020; x++) {
+            for (let x = 2000; x <= 2020; x++) {
                 const colorStr = rgbToHex(Math.floor(Math.abs(pcm[x]) * 100000000) % 256, Math.floor(Math.abs(pcm[x]) * 10000000000) % 256, Math.floor(Math.abs(pcm[x]) * 1000000000000) % 256);
                 colors.push(colorStr);
             }
             console.log(colors);
             //lets say we'll have 30 by 30 grid
             //we will give each square a color
-            for (let i = 0; i < 30; i++) {
-                for (let j = 0; j < 30; j++) {
+            for (let i = 0; i < 330; i++) {
+                for (let j = 0; j < 330; j++) {
                     const square = { x: i * pixelSize, y: j * pixelSize, w: pixelSize, h: pixelSize };
-                    drawPixel(square, { backgroundColor: colors[(i + j * 30) % colors.length] });
+                    drawPixel(square, {
+                        backgroundColor: colors[(i + j * getRandomInt(50)) % colors.length]
+                    });
                 }
             }
         }
@@ -91,13 +126,15 @@ const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
         connection.getBalance(publicKey).then((bal) => {
             console.log(bal / LAMPORTS_PER_SOL, "lamp sol");
         });
-        let key = env.SOLANA_PRIVATE_KEY;
-        let firstWinPrivKey = key.slice(0, 32);
-        let secretKey = web3.Keypair.fromSeed(Uint8Array.from(firstWinPrivKey));
+
+        console.log(wallet._keypair.secretKey, "publickeeey")
+        //await airDropSol();
+        //await getWalletBalance();
+        //await airDropSol()
 
         const mintNFTResponse = await actions.mintNFT({
             connection,
-            wallet: new NodeWallet(Keypair.fromSecretKey(secretKey.secretKey)),
+            wallet: new NodeWallet(Keypair.fromSecretKey(secretKey)),
             uri: 'https://www.arweave.net/1r-ImuiIxFl18UQolAoBnwLDMVcjkVAHruhtsaBpA7U?ext=json',
             maxSupply: 1
         }).catch(e => console.error(e,));
@@ -110,7 +147,7 @@ const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
     return (
         <div className="central-inner-container">
             <div className="CanvasVisual">
-                <canvas ref={canvas} height="500" width="500" />
+                <canvas ref={canvas} />
             </div>
             <div className="vis-btns">
                 <GetLocation x={setLatitude} y={setLongitude} xx={latitude} yy={longitude} />

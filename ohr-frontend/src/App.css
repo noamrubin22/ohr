@@ -103,7 +103,7 @@ li {
 
 /* middle */
 .central-outer-container {
-  height: 68vh;
+  height: 69vh;
   width: 100vw;
   position: relative;
 }
@@ -237,6 +237,8 @@ canvas {
   width: 30vw;
   height: 30vw;
   background-color: #191d24;
+  outline: #191d24 3px solid;
+  box-shadow: 5px 5px 5px rgb(34, 34, 34);
 }
 
 .vis-btns {
