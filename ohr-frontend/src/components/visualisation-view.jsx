@@ -8,7 +8,8 @@ import * as solanaWeb3 from "@solana/web3.js";
 const { struct, u32, ns64 } = require("@solana/buffer-layout");
 const { Buffer } = require("buffer");
 
-const pixelSize = 20;
+
+const pixelSize = 6.8;
 
 
 const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
@@ -50,17 +51,14 @@ const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
     // coordinates
     const [latitude, setLatitude] = useState(null);
     const [longitude, setLongitude] = useState(null);
-
     // minting
     //const { publicKey, sendTransaction } = useWallet();
     //const web3 = require("@solana/web3.js");
     const bs58 = require('bs58');
-
     // visuals
     const [pcm, setPcm] = useState(null);
     const [ctx, setCtx] = useState(null);
     const canvas = useRef();
-
 
     // draw rectangle with background
     const drawPixel = (info, style = {}) => {
@@ -92,20 +90,32 @@ const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
     }, []);
 
     useEffect(() => {
+        // taken from https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+        function componentToHex(c) {
+            var hex = c.toString(16);
+            return hex.length == 1 ? "0" + hex : hex;
+        }
+        function rgbToHex(r, g, b) {
+            return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+        }
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
         if (pcm) {
             let colors = [];
-            for (let x = 2000; x <= 2010; x++) {
-                const colorStr = pcm[x].toString();
-                const hash = "#" + colorStr.substring(colorStr.length - 6);
-                colors.push(hash);
+            for (let x = 2000; x <= 2020; x++) {
+                const colorStr = rgbToHex(Math.floor(Math.abs(pcm[x]) * 100000000) % 256, Math.floor(Math.abs(pcm[x]) * 10000000000) % 256, Math.floor(Math.abs(pcm[x]) * 1000000000000) % 256);
+                colors.push(colorStr);
             }
             console.log(colors);
             //lets say we'll have 30 by 30 grid
             //we will give each square a color
-            for (let i = 0; i < 30; i++) {
-                for (let j = 0; j < 30; j++) {
+            for (let i = 0; i < 330; i++) {
+                for (let j = 0; j < 330; j++) {
                     const square = { x: i * pixelSize, y: j * pixelSize, w: pixelSize, h: pixelSize };
-                    drawPixel(square, { backgroundColor: colors[(i + j * 30) % colors.length] });
+                    drawPixel(square, {
+                        backgroundColor: colors[(i + j * getRandomInt(50)) % colors.length]
+                    });
                 }
             }
         }
@@ -137,7 +147,7 @@ const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
     return (
         <div className="central-inner-container">
             <div className="CanvasVisual">
-                <canvas ref={canvas} height="500" width="500" />
+                <canvas ref={canvas} />
             </div>
             <div className="vis-btns">
                 <GetLocation x={setLatitude} y={setLongitude} xx={latitude} yy={longitude} />
