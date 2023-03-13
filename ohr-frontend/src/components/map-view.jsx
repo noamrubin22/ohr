@@ -1,5 +1,4 @@
 import GeoMap from "./geo-map";
-
 function MapView({ setView }) {
   return (
     <div className="central-inner-container">

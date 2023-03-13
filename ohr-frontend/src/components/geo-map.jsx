@@ -18,33 +18,48 @@ const GeoMap = ({ style }) => {
   }, []);
 
   return (
-    <div className={style}>
-      {currentCoordinates && (
-        <Map
-          mapboxAccessToken={accessToken}
-          mapStyle={`mapbox://styles/mapbox/dark-v9`}
-          initialViewState={{
-            longitude: currentCoordinates?.longitude,
-            latitude: currentCoordinates?.latitude,
-            zoom: 10,
-          }}
-        >
-          <GeolocateControl
-            positionOptions={{ enableHighAccuracy: true }}
-            fitBoundsOptions={{ maxZoom: 12 }}
-            trackUserLocation={true}
-            showAccuracyCircle={true}
-            showUserLocation={true}
-          />
-          {/* <Marker
-            longitude={currentCoordinates.longitude}
-            latitude={currentCoordinates.latitude}
+    <>
+      {currentCoordinates ? (
+        <div className={style}>
+          <Map
+            mapboxAccessToken={accessToken}
+            mapStyle={`mapbox://styles/mapbox/dark-v9`}
+            initialViewState={{
+              longitude: currentCoordinates?.longitude,
+              latitude: currentCoordinates?.latitude,
+              zoom: 10,
+            }}
           >
-            <img src={ear} alt={"Ear logo"} width="40px" height="60px" />
-          </Marker> */}
-        </Map>
+            <GeolocateControl
+              positionOptions={{ enableHighAccuracy: true }}
+              fitBoundsOptions={{ maxZoom: 12 }}
+              trackUserLocation={true}
+              showAccuracyCircle={true}
+              showUserLocation={true}
+            />
+            {/* <Marker
+              longitude={currentCoordinates.longitude}
+              latitude={currentCoordinates.latitude}
+            >
+              <img src={ear} alt={"Ear logo"} width="40px" height="60px" />
+            </Marker> */}
+          </Map>
+        </div>
+      ) : (
+        <div class="loader">
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+        </div>
       )}
-    </div>
+    </>
   );
 };
 
