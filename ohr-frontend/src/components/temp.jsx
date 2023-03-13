@@ -1,9 +1,9 @@
 import GetLocation from "./get-location";
 import { React, useState, useRef, useEffect } from "react";
 import { actions, utils, programs, NodeWallet } from '@metaplex/js';
-// import { Metaplex } from "@metaplex-foundation/js";
+import { Metaplex, walletAdapterIdentity } from "@metaplex-foundation/js";
 import { WalletAdapterNetwork, WalletNotConnectedError } from '@solana/wallet-adapter-base';
-import { clusterApiUrl, Transaction, SystemProgram, Keypair, LAMPORTS_PER_SOL, PublicKey, Connection} from '@solana/web3.js';
+import { clusterApiUrl, Transaction, SystemProgram, Keypair, LAMPORTS_PER_SOL, PublicKey, Connection } from '@solana/web3.js';
 import { ConnectionProvider, WalletProvider, useConnection, useWallet } from '@solana/wallet-adapter-react';
 import * as solanaWeb3 from "@solana/web3.js";
 const { struct, u32, ns64 } = require("@solana/buffer-layout");
@@ -14,39 +14,48 @@ const pixelSize = 6.8;
 
 
 const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
-   
-    //const web3 = require("@solana/web3.js");
-    const connection = new Connection(clusterApiUrl('devnet'),'confirmed')
-    const wallet = useWallet();
-    //const metaplex = new Metaplex(connection);
-    //metaplex.use(walletAdapterIdentity(wallet));
+    // const { Keypair } = require("@solana/web3.js");
+    const web3 = require("@solana/web3.js");
 
-    // const getWalletBalance = async() => {
-    //     try{
-    //         const connection = new Connection(clusterApiUrl('devnet'),'confirmed')
-    //         const walletBalance = await connection.getBalance(publicKey)
+    // const wallet = new Keypair()
+
+    // const publicKey = new PublicKey(wallet._keypair.publicKey)                
+    // const secretKey = wallet._keypair.secretKey
+
+    const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
+    const metaplex = new Metaplex(connection);
+    const wallet = useWallet();
+    metaplex.use(walletAdapterIdentity(wallet));
+
+    //const { connection } = useConnection();
+
+    // const getWalletBalance = async () => {
+    //     try {
+    //         const connection = new Connection(clusterApiUrl('devnet'), 'confirmed')
+    //         const walletBalance = await connection.getBalance(wallet.publicKey)
     //         console.log(`Wallet Balance is ${walletBalance}`)
     //     }
-    //     catch(er){
+    //     catch (er) {
     //         console.log(er)
     //     }
     // }
-    
-    // const airDropSol = async() =>{
-    //     try{
-    //         const connection = new Connection(clusterApiUrl('devnet'),'confirmed')
-    //         const fromAirDropSignature = await connection.requestAirdrop(publicKey, 1 * LAMPORTS_PER_SOL)
-    //         const latestBlockHash = await connection.getLatestBlockhash();
+    //getWalletBalance()
 
-    //         await connection.confirmTransaction({
-    //             blockhash: latestBlockHash.blockhash,
-    //             lastValidBlockHeight: latestBlockHash.lastValidBlockHeight,
-    //             signature: fromAirDropSignature,
-    //           });    
-    //     }catch(er){
-    //         console.log('Error Here: '+er)
-    //     }
-    // }
+    const airDropSol = async () => {
+        try {
+            const connection = new Connection(clusterApiUrl('devnet'), 'confirmed')
+            const fromAirDropSignature = await connection.requestAirdrop(wallet.publicKey, 1 * LAMPORTS_PER_SOL)
+            const latestBlockHash = await connection.getLatestBlockhash();
+
+            await connection.confirmTransaction({
+                blockhash: latestBlockHash.blockhash,
+                lastValidBlockHeight: latestBlockHash.lastValidBlockHeight,
+                signature: fromAirDropSignature,
+            });
+        } catch (er) {
+            console.log('Error Here: ' + er)
+        }
+    }
 
     // coordinates
     const [latitude, setLatitude] = useState(null);
@@ -54,7 +63,7 @@ const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
     // minting
     //const { publicKey, sendTransaction } = useWallet();
     //const web3 = require("@solana/web3.js");
-    //const bs58 = require('bs58');
+    const bs58 = require('bs58');
     // visuals
     const [pcm, setPcm] = useState(null);
     const [ctx, setCtx] = useState(null);
@@ -103,10 +112,11 @@ const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
         }
         if (pcm) {
             let colors = [];
-            for (let x = 3000; x <= 3020; x++) {
+            for (let x = 2000; x <= 2020; x++) {
                 const colorStr = rgbToHex(Math.floor(Math.abs(pcm[x]) * 100000000) % 256, Math.floor(Math.abs(pcm[x]) * 10000000000) % 256, Math.floor(Math.abs(pcm[x]) * 1000000000000) % 256);
                 colors.push(colorStr);
             }
+            console.log(colors);
             //lets say we'll have 30 by 30 grid
             //we will give each square a color
             for (let i = 0; i < 330; i++) {
@@ -121,22 +131,23 @@ const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
     }, [pcm])
 
     async function onClick() {
-        if (!wallet.publicKey) throw new WalletNotConnectedError();
+        if (wallet.publicKey === null) throw new WalletNotConnectedError();
         connection.getBalance(wallet.publicKey).then((bal) => {
             console.log(bal / LAMPORTS_PER_SOL, "lamp sol");
         });
 
-        //console.log(wallet._keypair.secretKey, "publickeeey")
+        // console.log(wallet._keypair.secretKey, "publickeeey")
         //await airDropSol();
-        //await getWalletBalance();
+        // await getWalletBalance();
         //await airDropSol()
-       
-        const mintNFTResponse = await actions.mintNFT({
-            connection,
-            wallet: wallet,
+
+        const mintNFTResponse = await metaplex.nfts().create({
+            name: "vika test",
             uri: 'https://www.arweave.net/1r-ImuiIxFl18UQolAoBnwLDMVcjkVAHruhtsaBpA7U?ext=json',
+            sellerFeeBasisPoints: 500,
             maxSupply: 1
         }).catch(e => console.error(e,));
+        console.log(mintNFTResponse);
     };
 
     const handleBack = () => {
