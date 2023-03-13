@@ -75,7 +75,7 @@ li {
 }
 
 .py-4 {
-  text-align: justify;
+  text-align: start;
   font-size: 1.2rem;
   font-family: 'Tilt Warp', cursive;
 }

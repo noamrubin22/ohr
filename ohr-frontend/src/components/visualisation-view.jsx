@@ -70,7 +70,7 @@ const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
         }
         if (pcm) {
             let colors = [];
-            for (let x = 2000; x <= 2020; x++) {
+            for (let x = 3000; x <= 3020; x++) {
                 const colorStr = rgbToHex(Math.floor(Math.abs(pcm[x]) * 100000000) % 256, Math.floor(Math.abs(pcm[x]) * 10000000000) % 256, Math.floor(Math.abs(pcm[x]) * 1000000000000) % 256);
                 colors.push(colorStr);
             }
