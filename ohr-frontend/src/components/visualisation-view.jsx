@@ -2,23 +2,58 @@ import GetLocation from "./get-location";
 import { React, useState, useRef, useEffect } from "react";
 import { actions, utils, programs, NodeWallet } from '@metaplex/js';
 import { WalletAdapterNetwork, WalletNotConnectedError } from '@solana/wallet-adapter-base';
-import { clusterApiUrl, Transaction, SystemProgram, Keypair, LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js';
+import { clusterApiUrl, Transaction, SystemProgram, Keypair, LAMPORTS_PER_SOL, PublicKey, Connection} from '@solana/web3.js';
 import { ConnectionProvider, WalletProvider, useConnection, useWallet } from '@solana/wallet-adapter-react';
-import env from "react-dotenv";
+import * as solanaWeb3 from "@solana/web3.js";
+const { struct, u32, ns64 } = require("@solana/buffer-layout");
+const { Buffer } = require("buffer");
 
-let thelamports = 0;
-let theWallet = "9m5kFDqgpf7Ckzbox91RYcADqcmvxW4MmuNvroD5H2r9";
 
 const pixelSize = 6.8;
 
+
 const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
+   // const { Keypair } = require("@solana/web3.js");
+    const web3 = require("@solana/web3.js");
+
+    const wallet = new Keypair()
+    
+    const publicKey = new PublicKey(wallet._keypair.publicKey)                
+    const secretKey = wallet._keypair.secretKey
+    const connection = new Connection(clusterApiUrl('devnet'),'confirmed')
+
+    const getWalletBalance = async() => {
+        try{
+            const connection = new Connection(clusterApiUrl('devnet'),'confirmed')
+            const walletBalance = await connection.getBalance(publicKey)
+            console.log(`Wallet Balance is ${walletBalance}`)
+        }
+        catch(er){
+            console.log(er)
+        }
+    }
+    
+    const airDropSol = async() =>{
+        try{
+            const connection = new Connection(clusterApiUrl('devnet'),'confirmed')
+            const fromAirDropSignature = await connection.requestAirdrop(publicKey, 1 * LAMPORTS_PER_SOL)
+            const latestBlockHash = await connection.getLatestBlockhash();
+
+            await connection.confirmTransaction({
+                blockhash: latestBlockHash.blockhash,
+                lastValidBlockHeight: latestBlockHash.lastValidBlockHeight,
+                signature: fromAirDropSignature,
+              });    
+        }catch(er){
+            console.log('Error Here: '+er)
+        }
+    }
     // coordinates
     const [latitude, setLatitude] = useState(null);
     const [longitude, setLongitude] = useState(null);
     // minting
-    const { connection } = useConnection();
-    const { publicKey, sendTransaction } = useWallet();
-    const web3 = require("@solana/web3.js");
+    //const { publicKey, sendTransaction } = useWallet();
+    //const web3 = require("@solana/web3.js");
     const bs58 = require('bs58');
     // visuals
     const [pcm, setPcm] = useState(null);
@@ -51,6 +86,7 @@ const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
         // get context of the canvas
         setCtx(canvasEle.getContext("2d"));
         getPCM(blob);
+        console.log(solanaWeb3, "webthree")
     }, []);
 
     useEffect(() => {
@@ -90,13 +126,15 @@ const VisualisationAndCoords = ({ setVisualisationView, blob }) => {
         connection.getBalance(publicKey).then((bal) => {
             console.log(bal / LAMPORTS_PER_SOL, "lamp sol");
         });
-        let key = env.SOLANA_PRIVATE_KEY;
-        let firstWinPrivKey = key.slice(0, 32);
-        let secretKey = web3.Keypair.fromSeed(Uint8Array.from(firstWinPrivKey));
+
+        console.log(wallet._keypair.secretKey, "publickeeey")
+        //await airDropSol();
+        //await getWalletBalance();
+        //await airDropSol()
 
         const mintNFTResponse = await actions.mintNFT({
             connection,
-            wallet: new NodeWallet(Keypair.fromSecretKey(secretKey.secretKey)),
+            wallet: new NodeWallet(Keypair.fromSecretKey(secretKey)),
             uri: 'https://www.arweave.net/1r-ImuiIxFl18UQolAoBnwLDMVcjkVAHruhtsaBpA7U?ext=json',
             maxSupply: 1
         }).catch(e => console.error(e,));
