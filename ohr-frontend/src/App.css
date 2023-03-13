@@ -195,12 +195,6 @@ li {
   animation: rec 1s ease-in-out infinite alternate;
 }
 
-/* mapview */
-.map-view-container {
-  width: 20%;
-  height: 20vh;
-}
-
 @keyframes rec {
   from {
     opacity: 0.8;
@@ -223,6 +217,12 @@ li {
 .map-container {
   width: 60vw;
   height: 60vh;
+  font-size: 0.01rem;
+}
+
+.map-container-flow {
+  width: 70vw;
+  height: 30vh;
   font-size: 0.01rem;
 }
 
@@ -345,5 +345,16 @@ canvas {
   canvas {
     width: 280px;
     height: 280px;
+  }
+
+  .map-view-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .mapboxgl-ctrl-attrib-inner {
+    display: none;
   }
 }

@@ -16,6 +16,7 @@
     "@testing-library/user-event": "^13.5.0",
     "arweave": "^1.13.1",
     "bs58": "^5.0.0",
+    "clsx": "^1.2.1",
     "daisyui": "^2.51.3",
     "draw-wave": "^2.0.0",
     "fs": "^0.0.1-security",

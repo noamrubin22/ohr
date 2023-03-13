@@ -1,7 +1,8 @@
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import { useRef, useState, useEffect } from "react";
+import { clsx } from "clsx";
 
-const Map = () => {
+const Map = ({ style }) => {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [lng, setLng] = useState(-70.9);
@@ -30,11 +31,7 @@ const Map = () => {
     });
   });
 
-  return (
-    <div className="map">
-      <div ref={mapContainer} className="map-container m-box" />
-    </div>
-  );
+  return <div ref={mapContainer} className={clsx(style, "m-box")} />;
 };
 
 export default Map;
