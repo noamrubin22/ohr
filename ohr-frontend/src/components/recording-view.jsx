@@ -75,7 +75,7 @@ const Recording = ({ ear, setVisualisationView, onRecorded, setView }) => {
             <img src={ear} alt="Ear recording button" />
           </button>
           <div>
-            <p className="text">press and hold the ear to record a sound</p>
+            <p className="text">press the ear to record a sound</p>
           </div>
         </div>
       </div>

@@ -1,4 +1,3 @@
-import GetLocation from "./get-location";
 import { React, useState, useRef, useEffect } from "react";
 import { actions, utils, programs, NodeWallet } from "@metaplex/js";
 // import { Metaplex } from "@metaplex-foundation/js";
@@ -173,12 +172,6 @@ const VisualisationAndCoords = ({ setVisualisationView, blob, setView }) => {
         <canvas ref={canvas} />
       </div>
       <div className="vis-btns">
-        <GetLocation
-          x={setLatitude}
-          y={setLongitude}
-          xx={latitude}
-          yy={longitude}
-        />
         <button className="btn btn-ghost big" onClick={onClick}>
           mint NFT
         </button>

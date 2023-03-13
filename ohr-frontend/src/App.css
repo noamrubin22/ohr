@@ -237,6 +237,14 @@ li {
   display: none;
 }
 
+.subtitle-location {
+  font-size: 1.2rem;
+  text-shadow: 3px 3px #010101;
+  font-style: italic;
+  margin: 0rem;
+  color: #64ed14;
+}
+
 body {
   margin: 0;
   padding: 0;
