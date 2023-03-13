@@ -23,7 +23,7 @@ const LandingPage = () => {
   return (
     <div className="grad">
       <UpperNav />
-      <WelcomeText />
+      <WelcomeText isConnected={wallet.publicKey} />
       <div className="central-outer-container">
         {!wallet.publicKey ? (
           <Landing ear={ear} />

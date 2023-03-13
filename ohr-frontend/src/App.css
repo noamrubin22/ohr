@@ -103,7 +103,7 @@ li {
 
 /* middle */
 .central-outer-container {
-  height: 80vh;
+  height: 68vh;
   width: 100vw;
   position: relative;
 }
@@ -159,6 +159,7 @@ li {
 .timer {
   font-style: italic;
   font-size: 4.5em;
+  margin-top: 2rem;
   margin-bottom: 1.5%;
 }
 
