@@ -272,11 +272,28 @@ canvas {
 }
 
 @media only screen and (max-width: 768px) {
+  .central-outer-container {
+    height: 70vh;
+  }
   .central-inner-container {
     height: 70vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
+  }
+
+  .title {
+    font-size: 2rem;
+    color: #64ed14;
+    font-style: italic;
+    text-shadow: 3px 3px #010101;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    text-shadow: 3px 3px #010101;
+    font-style: italic;
+    margin: 0rem;
   }
 
   .app-title {
