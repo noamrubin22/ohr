@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Gajraj+One&family=Wallpoet&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gajraj+One&family=Tilt+Warp&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -27,7 +27,7 @@ body {
 }
 
 li {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Tilt Warp', cursive;
 }
 
 .btn {
@@ -74,13 +74,10 @@ li {
   background-color: rgb(34, 34, 34);
 }
 
-.m-box {
-  
-}
-
 .py-4 {
-  text-align: justify;
+  text-align: start;
   font-size: 1.2rem;
+  font-family: 'Tilt Warp', cursive;
 }
 
 .py-4 h1 {
@@ -137,7 +134,7 @@ li {
 .timer {
   font-style: italic;
   font-size: 4.5em;
-  margin-bottom: 2%; 
+  margin-bottom: 1.5%; 
 }
 
 .text {
