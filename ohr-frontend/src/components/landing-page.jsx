@@ -71,7 +71,7 @@ const LandingPage = () => {
   return (
     <div className="grad">
       <UpperNav />
-      <WelcomeText isConnected={wallet.publicKey} />
+      {!wallet.publicKey && <WelcomeText />}
       <div className="central-outer-container">{componentToRender}</div>
       <BottomNav />
     </div>

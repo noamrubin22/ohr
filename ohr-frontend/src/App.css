@@ -31,10 +31,15 @@ a {
     rgba(27, 220, 91, 0.202),
     rgba(194, 255, 245, 0.048)
   );
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 body {
   background-image: linear-gradient(to bottom right, #170537, #d238fd);
+  margin: 0;
+  padding: 0;
 }
 
 li {
@@ -103,9 +108,12 @@ li {
 
 /* middle */
 .central-outer-container {
-  height: 69vh;
+  /* height: 69vh;
   width: 100vw;
-  position: relative;
+  position: relative; */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .central-inner-container {
@@ -242,7 +250,7 @@ canvas {
   margin: 0 auto;
   width: 30vw;
   height: 30vw;
-  background-color: rgba(128, 224, 224, 0.0);
+  background-color: rgba(128, 224, 224, 0);
   outline: #191d24 3px solid;
   box-shadow: 5px 5px 5px rgb(34, 34, 34);
 }
@@ -280,9 +288,11 @@ canvas {
 }
 
 @media only screen and (max-width: 768px) {
-  .central-outer-container {
-    height: 70vh;
+  .body {
+    margin: 0;
+    padding: 0;
   }
+
   .central-inner-container {
     height: 70vh;
     display: flex;
