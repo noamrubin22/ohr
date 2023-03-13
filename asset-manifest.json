@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ohr/static/css/main.c9832970.css",
-    "main.js": "/ohr/static/js/main.210e6334.js",
+    "main.css": "/ohr/static/css/main.86644671.css",
+    "main.js": "/ohr/static/js/main.2a605998.js",
     "static/js/59.21e21aa5.chunk.js": "/ohr/static/js/59.21e21aa5.chunk.js",
     "static/js/997.6dbbf694.chunk.js": "/ohr/static/js/997.6dbbf694.chunk.js",
     "static/js/126.ff553559.chunk.js": "/ohr/static/js/126.ff553559.chunk.js",
@@ -9,15 +9,15 @@
     "static/js/724.6660542d.chunk.js": "/ohr/static/js/724.6660542d.chunk.js",
     "static/media/ohr2.png": "/ohr/static/media/ohr2.9a19ab9d0e5de8ecbd48.png",
     "index.html": "/ohr/index.html",
-    "main.c9832970.css.map": "/ohr/static/css/main.c9832970.css.map",
-    "main.210e6334.js.map": "/ohr/static/js/main.210e6334.js.map",
+    "main.86644671.css.map": "/ohr/static/css/main.86644671.css.map",
+    "main.2a605998.js.map": "/ohr/static/js/main.2a605998.js.map",
     "59.21e21aa5.chunk.js.map": "/ohr/static/js/59.21e21aa5.chunk.js.map",
     "126.ff553559.chunk.js.map": "/ohr/static/js/126.ff553559.chunk.js.map",
     "608.1c776821.chunk.js.map": "/ohr/static/js/608.1c776821.chunk.js.map",
     "724.6660542d.chunk.js.map": "/ohr/static/js/724.6660542d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c9832970.css",
-    "static/js/main.210e6334.js"
+    "static/css/main.86644671.css",
+    "static/js/main.2a605998.js"
   ]
 }
