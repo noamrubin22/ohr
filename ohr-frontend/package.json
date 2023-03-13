@@ -30,7 +30,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "GENERATE_SOURCEMAP=false react-app-rewired start",
+    "start": "set GENERATE_SOURCEMAP=false && react-app-rewired start",
     "build": "react-app-rewired build",
     "deploy": "gh-pages -d build",
     "test": "react-app-rewired test",
