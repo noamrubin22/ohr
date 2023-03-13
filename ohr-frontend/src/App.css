@@ -206,7 +206,7 @@ canvas {
   margin: 0 auto;
   width: 30vw;
   height: 30vw;
-  background-color: #191D24;
+  background-color: rgba(128, 224, 224, 0.0)
 }
 
 .vis-btns {
