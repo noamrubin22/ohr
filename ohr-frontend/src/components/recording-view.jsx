@@ -1,10 +1,9 @@
-import { isWalletAdapterCompatibleStandardWallet } from "@solana/wallet-adapter-base";
 import React, { useState } from "react";
 import Timer from "./timer";
 
 // for now it's working on click (no holding)
 // it stops automaticaly after 10 sec
-const Recording = ({ ear, setVisualisationView, onRecorded, setView }) => {
+const Recording = ({ ear, onRecorded, setView }) => {
   const [recording, setRecording] = useState(false);
   const [didRecord, setDidRecord] = useState(false);
   const [recUrl, setRecUrl] = useState(null);

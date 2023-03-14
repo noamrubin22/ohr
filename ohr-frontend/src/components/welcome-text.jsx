@@ -1,5 +1,3 @@
-import Timer from "../components/timer";
-
 function WelcomeText() {
   return (
     <div className="welcome-container">

@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Map, { GeolocateControl, Marker } from "react-map-gl";
-import ear from "../assets/ohr2.png";
-import HomeBtn from "./home-btn";
 
 function MapView({ setView }) {
   const [currentCoordinates, setCurrentCoordinates] = useState();
 
-  const accessToken =
-    "pk.eyJ1Ijoibm9hbWllMjIiLCJhIjoiY2xmMmoxZjYwMGowdjN5cG5vMXJzY2J4eCJ9.R1-JKFMkvmsuDf7Mk-CoNg";
+  const accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
   useEffect(() => {
     if ("geolocation" in navigator) {

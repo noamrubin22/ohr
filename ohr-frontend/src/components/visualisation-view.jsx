@@ -1,5 +1,4 @@
 import { React, useState, useRef, useEffect } from "react";
-import HomeBtn from "./home-btn";
 import MintNft from "./mint-nft";
 
 const pixelSize = 6.8;
