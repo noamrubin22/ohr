@@ -22,7 +22,6 @@ function MapView({ setView }) {
       <div className="map-view-container">
         {currentCoordinates ? (
           <>
-            <HomeBtn setView={setView} />
             <h1 className="subtitle-location">
               do you want to add your location?
             </h1>
@@ -52,17 +51,22 @@ function MapView({ setView }) {
               </Map>
             </div>
             <div>
-              <button
-                className="btn"
-                onClick={() =>
-                  setView("visual") && console.log(currentCoordinates)
-                }
-              >
-                yes
-              </button>
-              <button className="btn" onClick={() => setView("visual")}>
-                no
-              </button>
+              <div className="map-btns">
+                <button
+                  className="btn btn-ghost big"
+                  onClick={() =>
+                    setView("visual") && console.log(currentCoordinates)
+                  }
+                >
+                  yes
+                </button>
+                <button
+                  className="btn btn-ghost big"
+                  onClick={() => setView("visual")}
+                >
+                  no
+                </button>
+              </div>
             </div>
           </>
         ) : (

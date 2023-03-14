@@ -1,16 +1,12 @@
 import ConnectionButton from "./connection-button";
 import Map from "./map";
+import HomeBtn from "./home-btn";
 
-function UpperNav() {
+function UpperNav({ setView }) {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
-        <label
-          htmlFor="my-modal-5"
-          className="btn btn-ghost normal-case text-xl"
-        >
-          NFT map
-        </label>
+        <HomeBtn setView={setView} />
         <input type="checkbox" id="my-modal-5" className="modal-toggle" />
         <label htmlFor="my-modal-5" className="modal cursor-pointer">
           <label className="relative" htmlFor="">

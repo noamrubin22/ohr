@@ -128,16 +128,17 @@ li {
 /* landing */
 .title {
   font-size: 3.5rem;
-  color: #64ed14;
-  font-style: italic;
-  text-shadow: 3px 3px #010101;
+  font-family: "Tilt Warp", cursive;
+  text-align: left;
+  margin: 1rem;
+  width: 20rem;
 }
 
 .subtitle {
   font-size: 1.3rem;
-  text-shadow: 3px 3px #010101;
-  font-style: italic;
-  margin: 0rem;
+  font-family: "Tilt Warp";
+  text-align: left;
+  margin: 1rem;
 }
 
 .app-title {
@@ -237,12 +238,18 @@ li {
   display: none;
 }
 
+.btns-map {
+  display: flex;
+  flex-direction: column;
+}
+
 .subtitle-location {
   font-size: 1.2rem;
-  text-shadow: 3px 3px #010101;
-  font-style: italic;
   margin: 0rem;
-  color: #64ed14;
+  font-size: 1.3rem;
+  font-family: "Tilt Warp";
+  text-align: left;
+  margin-left: 3.7rem;
 }
 
 body {
@@ -373,6 +380,16 @@ canvas {
     padding: 0;
   }
 
+  .welcome-container {
+    margin: 0.5rem;
+    width: 200rem;
+  }
+  .central-outer-container {
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+  }
+
   .central-inner-container {
     height: 70vh;
     display: flex;
@@ -382,44 +399,51 @@ canvas {
 
   .title {
     font-size: 2rem;
-    color: #64ed14;
-    font-style: italic;
-    text-shadow: 3px 3px #010101;
+    line-height: 2.2rem;
   }
 
   .subtitle {
-    font-size: 1rem;
-    text-shadow: 3px 3px #010101;
-    font-style: italic;
-    margin: 0rem;
+    font-size: 1.2rem;
+    line-height: 2.2rem;
+    font-weight: regular;
+  }
+  .subtitle-location {
+    width: 80vw;
   }
 
   .app-title {
     width: 20px;
-    font-size: 3.5rem;
-    margin-left: 0%;
-    margin-top: -16.2%;
+    font-size: 1.5rem;
+    margin-left: 4%;
+    margin-top: 5rem;
   }
 
   .app-title-top {
-    margin-left: 0.7%;
+    margin-left: 4.7%;
     width: 20px;
-    font-size: 3.5rem;
-    margin-top: -14.5%;
+    font-size: 1.5rem;
+    margin-top: 5.5rem;
+  }
+
+  .huge-ear {
+    margin-right: 2rem;
+    margin-bottom: 0rem;
   }
 
   .huge-ear img {
     height: 42vh;
     padding-left: 20px;
+    padding-bottom: 1rem;
+    margin-bottom: 0rem;
+    margin-right: 3rem;
   }
 
   .text {
     width: 40%;
     margin-left: 30%;
-    margin-top: 6%;
-    text-align: center;
-    font-size: small;
-    text-align: justify;
+    text-align: left;
+    margin-top: 0rem;
+    font-size: 1.2rem;
   }
 
   canvas {
@@ -436,16 +460,30 @@ canvas {
   }
 
   .map-container-flow {
-    width: 60vw;
-    height: 30vh;
+    width: 67vw;
+    height: 40vh;
     font-size: 0.01rem;
     margin: 1rem;
   }
 
   .home-btn {
-    font-size: 3rem;
-    position: absolute;
-    top: 0;
+    margin-bottom: 13rem;
+  }
+
+  .vis-btns {
+    display: flex;
+    align-items: flex-start;
     align-self: center;
+    margin-left: 1rem;
+  }
+
+  .map-btns {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .map-btns > .btn {
+    margin-left: 2.2rem;
+    margin-right: 2.2rem;
   }
 }

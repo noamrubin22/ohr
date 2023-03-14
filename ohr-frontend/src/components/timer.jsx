@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 function Timer({ recording, recUrl }) {
-  const [timeLeft, setTimeLeft] = useState(10);
+  const [timeLeft, setTimeLeft] = useState(7);
 
   useEffect(() => {
-    setTimeLeft(10);
+    setTimeLeft(7);
   }, [recUrl]);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ function Timer({ recording, recUrl }) {
 
     if (recording && timeLeft > 0) {
       timer = setTimeout(() => {
-        setTimeLeft(prevTimeLeft => prevTimeLeft - 1);
+        setTimeLeft((prevTimeLeft) => prevTimeLeft - 1);
       }, 1000);
     }
 
@@ -25,9 +25,7 @@ function Timer({ recording, recUrl }) {
     }
   }, [recording]);
 
-  return (
-    <div className="timer"> {timeLeft}</div>
-  );
+  return <div className="timer"> 00.0{timeLeft}</div>;
 }
 
 export default Timer;

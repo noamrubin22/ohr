@@ -64,8 +64,6 @@ const Recording = ({ ear, setVisualisationView, onRecorded, setView }) => {
     <>
       <div className="central-inner-container">
         <Timer recording={recording} recUrl={recUrl} />
-        <h1 className="app-title">øhr</h1>
-        <h1 className="app-title-top">øhr</h1>
         <div className="recording-container">
           <button
             className={didRecord ? "huge-ear" : "huge-ear rec"}

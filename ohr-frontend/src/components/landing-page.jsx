@@ -52,9 +52,19 @@ const LandingPage = () => {
 
   return (
     <div className="grad">
-      <UpperNav />
-      {!wallet.publicKey && <WelcomeText />}
-      <div className="central-outer-container">{componentToRender}</div>
+      <UpperNav setView={setView} />
+      {wallet.publicKey ? (
+        <div className="central-outer-container">
+          <div>{componentToRender}</div>
+          <div>{!wallet.publicKey && <WelcomeText />}</div>
+        </div>
+      ) : (
+        <div className="central-outer-container">
+          <Landing ear={ear} />
+          <div>{!wallet.publicKey && <WelcomeText />}</div>
+        </div>
+      )}
+
       <BottomNav />
     </div>
   );

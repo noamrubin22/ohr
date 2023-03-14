@@ -169,17 +169,18 @@ const VisualisationAndCoords = ({ setVisualisationView, blob, setView }) => {
 
   return (
     <div className="central-inner-container">
-      <HomeBtn setView={setView} />
       <div className="CanvasVisual">
         <canvas ref={canvas} />
       </div>
       <div className="vis-btns">
         <button className="btn btn-ghost big" onClick={onClick}>
-          mint NFT
+          mint NFT ->
         </button>
-        <button className="btn btn-ghost" onClick={handleBack}>
-          back
-        </button>
+        <div className="back-btn">
+          <button className="btn btn-ghost" onClick={handleBack}>
+            back
+          </button>
+        </div>
       </div>
     </div>
   );
