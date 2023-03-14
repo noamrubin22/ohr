@@ -441,4 +441,11 @@ canvas {
     font-size: 0.01rem;
     margin: 1rem;
   }
+
+  .home-btn {
+    font-size: 3rem;
+    position: absolute;
+    top: 0;
+    align-self: center;
+  }
 }

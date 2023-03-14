@@ -1,5 +1,6 @@
 import { React, useState, useRef, useEffect } from "react";
 import { actions, utils, programs, NodeWallet } from "@metaplex/js";
+import HomeBtn from "./home-btn";
 // import { Metaplex } from "@metaplex-foundation/js";
 import {
   WalletAdapterNetwork,
@@ -168,6 +169,7 @@ const VisualisationAndCoords = ({ setVisualisationView, blob, setView }) => {
 
   return (
     <div className="central-inner-container">
+      <HomeBtn setView={setView} />
       <div className="CanvasVisual">
         <canvas ref={canvas} />
       </div>

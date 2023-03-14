@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Map, { GeolocateControl, Marker } from "react-map-gl";
 import ear from "../assets/ohr2.png";
+import HomeBtn from "./home-btn";
 
 function MapView({ setView }) {
   const [currentCoordinates, setCurrentCoordinates] = useState();
@@ -21,6 +22,7 @@ function MapView({ setView }) {
       <div className="map-view-container">
         {currentCoordinates ? (
           <>
+            <HomeBtn setView={setView} />
             <h1 className="subtitle-location">
               do you want to add your location?
             </h1>

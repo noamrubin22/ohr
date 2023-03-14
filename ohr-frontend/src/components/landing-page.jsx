@@ -5,6 +5,7 @@ import Landing from "./landing-view";
 import Recording from "./recording-view";
 import VisualisationAndCoords from "./visualisation-view";
 import Map from "./map";
+import HomeBtn from "./home-btn";
 import { useState, useEffect } from "react";
 
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
