@@ -1,7 +1,7 @@
 # øhr
 ![øhr desktop screenshot](https://github.com/noamrubin22/ohr/blob/main/ohr-frontend/public/desktop-screenshot.png)
 <p align="center">
-  <img src="https://github.com/noamrubin22/ohr/blob/main/ohr-frontend/public/mobile-screenshot.png" alt="øhr mobile screenshot" height="30vh"/>
+  <img src="https://github.com/noamrubin22/ohr/blob/main/ohr-frontend/public/mobile-screenshot.png" alt="øhr mobile screenshot" height="400vh"/>
 </p>
 
 øhr is a dApp that enables users to create audio NFTs on the spot to capture moments in the form of sound.
