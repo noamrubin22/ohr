@@ -1,7 +1,7 @@
 import Arweave from "arweave";
 import * as fs from "fs";
 import env from "react-dotenv";
-
+import { JWKInterface } from 'arweave/node/lib/wallet';
 
 
 const arweave = Arweave.init({
@@ -11,6 +11,7 @@ const arweave = Arweave.init({
   timeout: 20000, // Network request timeouts in milliseconds
   logging: false, // Disable network request logging
 });
+
 
 // Submits a transaction and reads the data
 async function run() {
