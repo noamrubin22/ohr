@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ohr/static/css/main.653c0467.css",
-    "main.js": "/ohr/static/js/main.295907cf.js",
+    "main.js": "/ohr/static/js/main.260270d4.js",
     "static/js/483.ebf99054.chunk.js": "/ohr/static/js/483.ebf99054.chunk.js",
     "static/js/59.ef2245e9.chunk.js": "/ohr/static/js/59.ef2245e9.chunk.js",
     "static/js/997.abc30035.chunk.js": "/ohr/static/js/997.abc30035.chunk.js",
@@ -11,7 +11,7 @@
     "static/media/ohr2.png": "/ohr/static/media/ohr2.9a19ab9d0e5de8ecbd48.png",
     "index.html": "/ohr/index.html",
     "main.653c0467.css.map": "/ohr/static/css/main.653c0467.css.map",
-    "main.295907cf.js.map": "/ohr/static/js/main.295907cf.js.map",
+    "main.260270d4.js.map": "/ohr/static/js/main.260270d4.js.map",
     "483.ebf99054.chunk.js.map": "/ohr/static/js/483.ebf99054.chunk.js.map",
     "59.ef2245e9.chunk.js.map": "/ohr/static/js/59.ef2245e9.chunk.js.map",
     "126.6d4f5dc9.chunk.js.map": "/ohr/static/js/126.6d4f5dc9.chunk.js.map",
@@ -20,6 +20,6 @@
   },
   "entrypoints": [
     "static/css/main.653c0467.css",
-    "static/js/main.295907cf.js"
+    "static/js/main.260270d4.js"
   ]
 }
