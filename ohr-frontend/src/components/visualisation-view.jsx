@@ -78,8 +78,8 @@ const VisualisationAndCoords = ({ blob, setView }) => {
         );
         colors.push(colorStr);
       }
-      for (let i = 0; i < 330; i++) {
-        for (let j = 0; j < 330; j++) {
+      for (let i = 0; i < 130; i++) {
+        for (let j = 0; j < 130; j++) {
           const square = {
             x: i * pixelSize,
             y: j * pixelSize,

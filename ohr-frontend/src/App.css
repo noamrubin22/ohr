@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Gajraj+One&family=Tilt+Warp&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Russo+One&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -100,7 +100,7 @@ li {
 .py-4 {
   text-align: start;
   font-size: 1.2rem;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Russo One", sans-serif;
 }
 
 .py-4 h1 {
@@ -135,7 +135,7 @@ li {
 /* landing */
 .title {
   font-size: 3.5rem;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Russo One", sans-serif;
   text-align: left;
   margin: 1rem;
   font-weight: 700;
@@ -145,7 +145,7 @@ li {
 .subtitle {
   font-size: 1.3rem;
   /* font-family: "Tilt Warp"; */
-  font-family: "Montserrat", sans-serif;
+  font-family: "Russo One", sans-serif;
   text-align: left;
   margin: 1rem;
 }
