@@ -1,9 +1,5 @@
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
-import { useConnection, useWallet } from "@solana/wallet-adapter-react";
-import { useEffect } from "react";
-import Landing from "./landing-view";
-import Recording from "./recording-view";
-import ear from "../assets/ohr2.png";
+import { useWallet } from "@solana/wallet-adapter-react";
 
 const ConnectionButton = () => {
   const wallet = useWallet();
