@@ -14,10 +14,10 @@ function BottomNav() {
             <div className="py-4">
               <h1>Inspired to capture a moment?</h1>
               <ol>
-                <li>1. Hold the 👂 button to record sound.</li>
-                <li>2. Listen, continue or re-record.</li>
-                <li>3. Do you want to add your location?</li>
-                <li>4. A unique audio visual is generated for you.</li>
+                <li>1. Hold the 👂 button to record sound</li>
+                <li>2. Listen, continue or re-record</li>
+                <li>3. If you want, add your location</li>
+                <li>4. A unique visual is generated for you</li>
                 <li>5. Mint your audio NFT!</li>
               </ol>
             </div>
