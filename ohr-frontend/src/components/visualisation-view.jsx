@@ -104,12 +104,7 @@ const VisualisationAndCoords = ({ blob, setView }) => {
         <canvas ref={canvas} />
       </div>
       <div className="vis-btns">
-        <button
-          className="btn btn-ghost big"
-          onClick={() => console.log("click")}
-        >
-          mint NFT ->
-        </button>
+        <MintNft blob={blob} />
         <div className="back-btn">
           <button className="btn btn-ghost" onClick={handleBack}>
             back
