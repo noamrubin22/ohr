@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Gajraj+One&family=Tilt+Warp&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -43,7 +44,8 @@ body {
 }
 
 li {
-  font-family: "Tilt Warp", cursive;
+  /* font-family: "Tilt Warp", cursive; */
+  font-family: "Montserrat", sans-serif;
 }
 
 .btn {
@@ -59,8 +61,7 @@ li {
 
 .welcome-container {
   margin: 0.5rem;
-  width: 200rem;
-  margin-top: 15rem;
+  margin-top: 18rem;
   line-height: 4rem;
 }
 
@@ -100,7 +101,7 @@ li {
 .py-4 {
   text-align: start;
   font-size: 1.2rem;
-  font-family: "Tilt Warp", cursive;
+  font-family: "Montserrat", sans-serif;
 }
 
 .py-4 h1 {
@@ -135,15 +136,18 @@ li {
 /* landing */
 .title {
   font-size: 3.5rem;
-  font-family: "Tilt Warp", cursive;
+  /* font-family: "Tilt Warp", cursive; */
+  font-family: "Montserrat", sans-serif;
   text-align: left;
   margin: 1rem;
-  width: 20rem;
+  font-weight: 700;
+  width: 22rem;
 }
 
 .subtitle {
   font-size: 1.3rem;
-  font-family: "Tilt Warp";
+  /* font-family: "Tilt Warp"; */
+  font-family: "Montserrat", sans-serif;
   text-align: left;
   margin: 1rem;
 }
@@ -261,7 +265,8 @@ li {
   font-size: 1.2rem;
   margin: 0rem;
   font-size: 1.3rem;
-  font-family: "Tilt Warp";
+  /* font-family: "Tilt Warp"; */
+  font-family: "Montserrat", sans-serif;
   text-align: left;
   margin-left: 3.7rem;
 }
@@ -461,7 +466,7 @@ canvas {
   }
 
   .huge-ear img {
-    height: 42vh;
+    height: 40vh;
     padding-left: 20px;
     padding-bottom: 1rem;
     margin-bottom: 0rem;
@@ -503,13 +508,12 @@ canvas {
   .vis-btns {
     display: flex;
     align-items: flex-start;
-    align-self: center;
     margin-left: 1rem;
   }
 
   .map-btns {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .map-btns > .btn {

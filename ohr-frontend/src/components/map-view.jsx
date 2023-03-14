@@ -43,11 +43,11 @@ function MapView({ setView }) {
                   showUserLocation={true}
                 />
                 {/* <Marker
-              longitude={currentCoordinates.longitude}
-              latitude={currentCoordinates.latitude}
-            >
-              <img src={ear} alt={"Ear logo"} width="40px" height="60px" />
-            </Marker> */}
+                  longitude={currentCoordinates.longitude}
+                  latitude={currentCoordinates.latitude}
+                >
+                  <img src={ear} alt={"Ear logo"} width="40px" height="60px" />
+                </Marker> */}
               </Map>
             </div>
             <div>
