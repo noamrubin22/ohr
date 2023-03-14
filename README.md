@@ -1,5 +1,5 @@
 # øhr
-![øhr desktop screenshot](https://github.com/noamrubin22/ohr-frontend/public/desktop-screenshot.png)
+![øhr desktop screenshot](https://github.com/noamrubin22/ohr/blob/main/ohr-frontend/public/desktop-screenshot.png)
 øhr is a dApp that enables users to create audio NFTs on the spot to capture moments in the form of sound.
 
 the main three use cases of øhr are:
