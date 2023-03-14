@@ -4,7 +4,7 @@ import MintNft from "./mint-nft";
 
 const pixelSize = 6.8;
 
-const VisualisationAndCoords = ({ blob }) => {
+const VisualisationAndCoords = ({ blob, setView }) => {
 
     const [pcm, setPcm] = useState(null);
     const [ctx, setCtx] = useState(null);
@@ -36,7 +36,7 @@ const VisualisationAndCoords = ({ blob }) => {
     // get context of the canvas
     setCtx(canvasEle.getContext("2d"));
     getPCM(blob);
-    console.log(solanaWeb3, "webthree");
+   
   }, []);
 
     useEffect(() => {

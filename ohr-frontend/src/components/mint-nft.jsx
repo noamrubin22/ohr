@@ -1,4 +1,4 @@
-import GetLocation from "./get-location";
+
 import { React, useState, useRef, useEffect } from "react";
 import { actions, utils, programs, NodeWallet } from '@metaplex/js';
 import { WalletAdapterNetwork, WalletNotConnectedError } from '@solana/wallet-adapter-base';
