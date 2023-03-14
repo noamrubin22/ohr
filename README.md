@@ -42,8 +42,9 @@ The dApp is open-source, and contributions and feedback from the community are w
 
 Some of our ideas for future implementations:
 - enabling users to chain sounds after transferring NFTs
-- betOnChain: bet with your friends, and put it on chain.
+- a map that visualises all the audio NFTs created with øhr
 - collabs with generative artists
+- betOnChain: bet with your friends, and put it on chain.
 - converting it into a native app in React Native
 
 ## Legal considerations
@@ -56,7 +57,7 @@ It is important to note that copyright and ownership laws can vary by jurisdicti
 - [Vika Shcherbak](https://github.com/uuuuuvika)
 - [Viktoria Cseter](https://github.com/dievickie)
 
-## Product Owner/ Product Manager
+## Product Owner/ Manager
 
 - [Noam Rubin](https://github.com/noamrubin22)
 
