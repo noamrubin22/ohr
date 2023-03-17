@@ -1,5 +1,3 @@
-import ear from "../assets/ohr2.png";
-
 function HomeBtn({ setView }) {
   const handleClick = () => {
     const confirmed = window.confirm(
