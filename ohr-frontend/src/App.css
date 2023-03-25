@@ -5,6 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .App {
   margin: 0;
   padding: 0;
@@ -42,8 +43,9 @@ a {
 
 body {
   background-image: linear-gradient(to bottom right, #170537, #d238fd);
-  margin: 0;
-  padding: 0;
+
+  height: 100%;
+  width: 100%;
 }
 
 
@@ -406,15 +408,6 @@ canvas {
 }
 
 @media only screen and (max-width: 768px) {
-  .body {
-    margin: 0;
-    padding: 0;
-  }
-
-  .welcome-container {
-    margin: 0.5rem;
-    width: 200rem;
-  }
   .central-outer-container {
     display: flex;
     justify-content: end;
@@ -438,6 +431,7 @@ canvas {
     line-height: 2.2rem;
     font-weight: regular;
   }
+  
   .subtitle-location {
     width: 80vw;
   }

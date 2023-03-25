@@ -6,7 +6,8 @@ const pixelSize = 6.8;
 const VisualisationAndCoords = ({ blob, setView }) => {
   const [pcm, setPcm] = useState(null);
   const [ctx, setCtx] = useState(null);
-  const canvas = useRef();
+  const [imgFromCanvas, setImgFromCanvas] = useState(null);
+  const canvas = useRef(null);
 
   const drawPixel = (info, style = {}) => {
     const { x, y, w, h } = info;
@@ -31,7 +32,10 @@ const VisualisationAndCoords = ({ blob, setView }) => {
     canvasEle.width = canvasEle.clientWidth;
     canvasEle.height = canvasEle.clientHeight;
     setCtx(canvasEle.getContext("2d"));
+
+ 
     getPCM(blob);
+
   }, []);
 
   useEffect(() => {
@@ -73,7 +77,7 @@ const VisualisationAndCoords = ({ blob, setView }) => {
         <canvas ref={canvas} />
       </div>
       <div className="vis-btns">
-        <MintNft blob={blob} />
+        <MintNft blob={blob} img={imgFromCanvas} />
         <button className="btn btn-ghost" onClick={handleBack}>back</button>
       </div>
     </div >
