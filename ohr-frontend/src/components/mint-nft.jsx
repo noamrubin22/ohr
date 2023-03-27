@@ -35,7 +35,7 @@ function MintNft({ blob }) {
 
     useEffect(() => {
         const loadImage = async () => {
-            const response = await fetch(require("../assets/bing-maps.png"));
+            const response = await fetch(require("../assets/smallEar.png"));
             console.log(response, "response");
             const arrayBuffer = await response.arrayBuffer();
             console.log(arrayBuffer, "arrayBuffer");
@@ -67,7 +67,7 @@ function MintNft({ blob }) {
             { data: imageBuffer },
             arweaveKey
         );
-        
+
         // transaction.addTag('Content-Type', 'audio/wav');
         transaction.addTag('Content-Type', 'image/img');
 
