@@ -1,13 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Gajraj+One&family=Tilt+Warp&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Russo+One&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
 .App {
   margin: 0;
   padding: 0;
   text-align: center;
+  height: 100vh;
+  width: 100vw;
   font-family: "Gajraj One", cursive;
   color: rgb(195, 195, 195);
   display: flex;
@@ -39,13 +43,11 @@ a {
 
 body {
   background-image: linear-gradient(to bottom right, #170537, #d238fd);
-  margin: 0;
-  padding: 0;
+
+  height: 100%;
+  width: 100%;
 }
 
-li {
-  /* font-family: "Tilt Warp", cursive; */
-}
 
 .btn {
   border-radius: 25mm;
@@ -406,15 +408,6 @@ canvas {
 }
 
 @media only screen and (max-width: 768px) {
-  .body {
-    margin: 0;
-    padding: 0;
-  }
-
-  .welcome-container {
-    margin: 0.5rem;
-    width: 200rem;
-  }
   .central-outer-container {
     display: flex;
     justify-content: end;
@@ -438,6 +431,7 @@ canvas {
     line-height: 2.2rem;
     font-weight: regular;
   }
+  
   .subtitle-location {
     width: 80vw;
   }
