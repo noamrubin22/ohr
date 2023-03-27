@@ -17,33 +17,33 @@ function MintNft({ blob }) {
         protocol: 'https',
     });
 
-    const [audioBuffer, setAudioBuffer] = useState(null);
-    //const [imageBuffer, setImageBuffer] = useState(null);
+    //const [audioBuffer, setAudioBuffer] = useState(null);
+    const [imageBuffer, setImageBuffer] = useState(null);
     
-    useEffect(() => {
-        async function getBuffer(b) {
-            const url = URL.createObjectURL(b);
-            console.log(url);
-            const response = await fetch(url);
-            const arrayBuffer = await response.arrayBuffer();
-            const buffer = Buffer.from(arrayBuffer);
-            setAudioBuffer(buffer);
-        }
-        getBuffer(blob);
-    }, []);
-
-
     // useEffect(() => {
-    //     const loadImage = async () => {
-    //         const response = await fetch(require('src/assets/bing-maps.png'));
-    //         console.log(response, "response");
+    //     async function getBuffer(b) {
+    //         const url = URL.createObjectURL(b);
+    //         console.log(url);
+    //         const response = await fetch(url);
     //         const arrayBuffer = await response.arrayBuffer();
-    //         console.log(arrayBuffer, "arrayBuffer");
-    //         const buffer = Buffer.from(arrayBuffer) // !
-    //         setImageBuffer(buffer);
+    //         const buffer = Buffer.from(arrayBuffer);
+    //         setAudioBuffer(buffer);
     //     }
-    //     loadImage();
-    // }, [])
+    //     getBuffer(blob);
+    // }, []);
+
+
+    useEffect(() => {
+        const loadImage = async () => {
+            const response = await fetch(require("../assets/bing-maps.png"));
+            console.log(response, "response");
+            const arrayBuffer = await response.arrayBuffer();
+            console.log(arrayBuffer, "arrayBuffer");
+            const buffer = Buffer.from(arrayBuffer) // !
+            setImageBuffer(buffer);
+        }
+        loadImage();
+    }, []);
 
 
     async function onClick() {
@@ -58,16 +58,19 @@ function MintNft({ blob }) {
         console.log(arweaveWalletBallance, 'Winston');
         console.log(ar, 'AR');
 
-        if (audioBuffer === null) {
+        if (imageBuffer === null) {
             return;
         }
-        console.log(audioBuffer, "BUFFER");
+        console.log(imageBuffer, "BUFFER");
 
         let transaction = await arweave.createTransaction(
-            { data: audioBuffer },
+            { data: imageBuffer },
             arweaveKey
         );
-        transaction.addTag('Content-Type', 'audio/wav');
+        
+        // transaction.addTag('Content-Type', 'audio/wav');
+        transaction.addTag('Content-Type', 'image/img');
+
         transaction.addTag('Version', '1.0.1');
         transaction.addTag('Type', 'post');
         await arweave.transactions.sign(transaction, arweaveKey);
