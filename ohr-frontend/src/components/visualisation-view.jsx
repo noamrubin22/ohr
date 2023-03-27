@@ -1,5 +1,6 @@
 import { React, useState, useRef, useEffect } from "react";
 import MintNft from "./mint-nft";
+import UploadMetadata from "./upload-arweave";
 
 const pixelSize = 6.8;
 
@@ -65,20 +66,20 @@ const VisualisationAndCoords = ({ blob, setView }) => {
 
   const handleBack = () => {
     setView("map");
-};
+  };
 
-return (
+  return (
     <div className="central-inner-container">
-
-        <div className="CanvasVisual">
-            <canvas ref={canvas} />
-        </div>
-        <div className="vis-btns">
-            <MintNft blob={blob}/>
-            <button className="btn btn-ghost" onClick={handleBack}>back</button>
-        </div>
+      <div className="CanvasVisual">
+        <canvas ref={canvas} />
+      </div>
+      <div className="vis-btns">
+        <UploadMetadata />
+        <MintNft blob={blob} />
+        <button className="btn btn-ghost" onClick={handleBack}>back</button>
+      </div>
     </div >
-)
+  )
 }
 
 export default VisualisationAndCoords;

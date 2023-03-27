@@ -1,5 +1,7 @@
 
 import { React, useState, useEffect } from "react";
+import { actions } from '@metaplex/js';
+import { WalletAdapterNetwork, WalletNotConnectedError } from '@solana/wallet-adapter-base';
 import { clusterApiUrl, Transaction, SystemProgram, Keypair, LAMPORTS_PER_SOL, PublicKey, Connection } from '@solana/web3.js';
 import { ConnectionProvider, WalletProvider, useConnection, useWallet } from '@solana/wallet-adapter-react';
 import Arweave from 'arweave';
@@ -9,7 +11,6 @@ const { Buffer } = require("buffer");
 function MintNft({ blob }) {
     const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
     const wallet = useWallet();
-    // TO DO: not expose priv key to the frontend!
     const arweaveKey = JSON.parse(process.env.ARWEAVE_KEY);
     const arweave = Arweave.init({
         host: 'arweave.net',
@@ -19,7 +20,7 @@ function MintNft({ blob }) {
 
     //const [audioBuffer, setAudioBuffer] = useState(null);
     const [imageBuffer, setImageBuffer] = useState(null);
-    
+
     // useEffect(() => {
     //     async function getBuffer(b) {
     //         const url = URL.createObjectURL(b);
@@ -36,9 +37,9 @@ function MintNft({ blob }) {
     useEffect(() => {
         const loadImage = async () => {
             const response = await fetch(require("../assets/smallEar.png"));
-            console.log(response, "response");
+            //console.log(response, "response");
             const arrayBuffer = await response.arrayBuffer();
-            console.log(arrayBuffer, "arrayBuffer");
+            //console.log(arrayBuffer, "arrayBuffer");
             const buffer = Buffer.from(arrayBuffer) // !
             setImageBuffer(buffer);
         }
@@ -47,17 +48,12 @@ function MintNft({ blob }) {
 
 
     async function onClick() {
-        // if (!wallet.publicKey) throw new WalletNotConnectedError();
-        // connection.getBalance(wallet.publicKey).then((bal) => {
-        //     console.log(bal / LAMPORTS_PER_SOL, "lamp sol");
-        // });
+        if (!wallet.publicKey) throw new WalletNotConnectedError();
+        connection.getBalance(wallet.publicKey).then((bal) => {
+            console.log(bal / LAMPORTS_PER_SOL, "lamp sol");
+        });
 
-        const arweaveWallet = await arweave.wallets.jwkToAddress(arweaveKey);
-        const arweaveWalletBallance = await arweave.wallets.getBalance(arweaveWallet);
-        const ar = arweave.ar.winstonToAr(arweaveWalletBallance);
-        console.log(arweaveWalletBallance, 'Winston');
-        console.log(ar, 'AR');
-
+        // UPLOADING
         if (imageBuffer === null) {
             return;
         }
@@ -65,31 +61,24 @@ function MintNft({ blob }) {
 
         let transaction = await arweave.createTransaction(
             { data: imageBuffer },
-            arweaveKey
         );
-
-        // transaction.addTag('Content-Type', 'audio/wav');
+        //transaction.addTag('Content-Type', 'audio/wav');
         transaction.addTag('Content-Type', 'image/img');
 
-        transaction.addTag('Version', '1.0.1');
-        transaction.addTag('Type', 'post');
         await arweave.transactions.sign(transaction, arweaveKey);
-
-        let uploader = await arweave.transactions.getUploader(transaction);
-        while (!uploader.isComplete) {
-            await uploader.uploadChunk();
-            console.log(`${uploader.pctComplete}% complete, ${uploader.uploadedChunks}/${uploader.totalChunks}`);
-        }
-        console.log(transaction);
         const response = await arweave.transactions.post(transaction);
-        console.log(response, "RESPONSE");
-        const status = await arweave.transactions.getStatus(transaction.id);
-        console.log(`Completed transaction ${transaction.id} with status code ${JSON.stringify(status)}!`);
+        console.log(response);
+        const dataUrl = transaction.id ? `https://arweave.net/${transaction.id}` : undefined;
+        console.log(dataUrl);
+
+        //MINTING
+        // lion
+        // uri: 'https://www.arweave.net/1r-ImuiIxFl18UQolAoBnwLDMVcjkVAHruhtsaBpA7U?ext=json',
 
         // const mintNFTResponse = await actions.mintNFT({
         //     connection,
         //     wallet: wallet,
-        //     uri: 'https://www.arweave.net/1r-ImuiIxFl18UQolAoBnwLDMVcjkVAHruhtsaBpA7U?ext=json',
+        //     uri: 'https://arweave.net/lYXTyvRrFNtrWii98Rg2oCt3dWUxh7kChlTJiLWXBhc',
         //     maxSupply: 1
         // }).catch(e => console.error(e,));
     };
@@ -98,6 +87,5 @@ function MintNft({ blob }) {
         <button className="btn btn-ghost big" onClick={onClick}>mint NFT</button>
     );
 }
-
 
 export default MintNft;
