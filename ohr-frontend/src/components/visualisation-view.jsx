@@ -1,8 +1,9 @@
 import { React, useState, useRef, useEffect } from "react";
-import MintNft from "./mint-nft";
-import UploadMetadata from "./upload-arweave";
+import UploadDataToArweave from "./upload-data-to-arweave";
+import CrateMetaAndMint from "./create-metadata-and-mint";
 
 const pixelSize = 6.8;
+
 
 const VisualisationAndCoords = ({ blob, setView }) => {
   const [pcm, setPcm] = useState(null);
@@ -74,8 +75,8 @@ const VisualisationAndCoords = ({ blob, setView }) => {
         <canvas ref={canvas} />
       </div>
       <div className="vis-btns">
-        <UploadMetadata />
-        <MintNft blob={blob} />
+        <UploadDataToArweave blob={blob} />
+        <CrateMetaAndMint />
         <button className="btn btn-ghost" onClick={handleBack}>back</button>
       </div>
     </div >
