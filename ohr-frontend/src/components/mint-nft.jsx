@@ -6,7 +6,7 @@ import Arweave from 'arweave';
 const { Buffer } = require("buffer");
 
 
-function MintNft({ blob, img }) {
+function MintNft({ blob }) {
     const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
     const wallet = useWallet();
     // TO DO: not expose priv key to the frontend!
@@ -17,20 +17,20 @@ function MintNft({ blob, img }) {
         protocol: 'https',
     });
 
-    //const [audioBuffer, setAudioBuffer] = useState(null);
+    const [audioBuffer, setAudioBuffer] = useState(null);
     //const [imageBuffer, setImageBuffer] = useState(null);
     
-    // useEffect(() => {
-    //     async function getBuffer(b) {
-    //         const url = URL.createObjectURL(b);
-    //         //console.log(url);
-    //         const response = await fetch(url);
-    //         const arrayBuffer = await response.arrayBuffer();
-    //         const buffer = Buffer.from(arrayBuffer);
-    //         setAudioBuffer(buffer);
-    //     }
-    //     getBuffer(blob);
-    // }, []);
+    useEffect(() => {
+        async function getBuffer(b) {
+            const url = URL.createObjectURL(b);
+            console.log(url);
+            const response = await fetch(url);
+            const arrayBuffer = await response.arrayBuffer();
+            const buffer = Buffer.from(arrayBuffer);
+            setAudioBuffer(buffer);
+        }
+        getBuffer(blob);
+    }, []);
 
 
     // useEffect(() => {
@@ -41,17 +41,6 @@ function MintNft({ blob, img }) {
     //         console.log(arrayBuffer, "arrayBuffer");
     //         const buffer = Buffer.from(arrayBuffer) // !
     //         setImageBuffer(buffer);
-    //     }
-    //     loadImage();
-    // }, [])
-
-    // useEffect(() => {
-    //     const loadImage = async (img) => {
-    //         const url = URL.createObjectURL(img);
-    //         //console.log(img)
-    //        // const arrayBuffer = Buffer.from(img, "base64")
-    //         //console.log(arrayBuffer, "arrayBuffer");
-    //         console.log(img);
     //     }
     //     loadImage();
     // }, [])
@@ -69,28 +58,30 @@ function MintNft({ blob, img }) {
         console.log(arweaveWalletBallance, 'Winston');
         console.log(ar, 'AR');
 
-        // if (img === null) {
-        //     return;
-        // }
-        // let transaction = await arweave.createTransaction(
-        //     { data: img },
-        //     arweaveKey
-        // );
-        // transaction.addTag('Content-Type', 'image/png');
-        // transaction.addTag('Version', '1.0.1');
-        // transaction.addTag('Type', 'post');
-        // await arweave.transactions.sign(transaction, arweaveKey);
+        if (audioBuffer === null) {
+            return;
+        }
+        console.log(audioBuffer, "BUFFER");
 
-        // let uploader = await arweave.transactions.getUploader(transaction);
-        // while (!uploader.isComplete) {
-        //     await uploader.uploadChunk();
-        //     console.log(`${uploader.pctComplete}% complete, ${uploader.uploadedChunks}/${uploader.totalChunks}`);
-        // }
-        // console.log(transaction);
-        // const response = await arweave.transactions.post(transaction);
-        // console.log(response, "RESPONSE");
-        // const status = await arweave.transactions.getStatus(transaction.id);
-        // console.log(`Completed transaction ${transaction.id} with status code ${JSON.stringify(status)}!`);
+        let transaction = await arweave.createTransaction(
+            { data: audioBuffer },
+            arweaveKey
+        );
+        transaction.addTag('Content-Type', 'audio/wav');
+        transaction.addTag('Version', '1.0.1');
+        transaction.addTag('Type', 'post');
+        await arweave.transactions.sign(transaction, arweaveKey);
+
+        let uploader = await arweave.transactions.getUploader(transaction);
+        while (!uploader.isComplete) {
+            await uploader.uploadChunk();
+            console.log(`${uploader.pctComplete}% complete, ${uploader.uploadedChunks}/${uploader.totalChunks}`);
+        }
+        console.log(transaction);
+        const response = await arweave.transactions.post(transaction);
+        console.log(response, "RESPONSE");
+        const status = await arweave.transactions.getStatus(transaction.id);
+        console.log(`Completed transaction ${transaction.id} with status code ${JSON.stringify(status)}!`);
 
         // const mintNFTResponse = await actions.mintNFT({
         //     connection,
@@ -104,5 +95,6 @@ function MintNft({ blob, img }) {
         <button className="btn btn-ghost big" onClick={onClick}>mint NFT</button>
     );
 }
+
 
 export default MintNft;
