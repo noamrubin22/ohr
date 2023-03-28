@@ -1,5 +1,4 @@
 function WelcomeText() {
-  // another test
   return (
     <div className="welcome-container">
       <h1 className="title">capture the moment in sound</h1>
