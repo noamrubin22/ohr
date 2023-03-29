@@ -43,11 +43,9 @@ a {
 
 body {
   background-image: linear-gradient(to bottom right, #170537, #d238fd);
-
   height: 100%;
   width: 100%;
 }
-
 
 .btn {
   border-radius: 25mm;
@@ -285,12 +283,6 @@ body {
   margin-right: 2.2rem;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 /* loader */
 .loader {
   height: 100vh;
@@ -407,7 +399,7 @@ canvas {
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1025px) {
   .central-outer-container {
     display: flex;
     justify-content: end;
@@ -422,13 +414,14 @@ canvas {
   }
 
   .title {
-    font-size: 2rem;
-    line-height: 2.2rem;
+    font-size: 1.8em;
+    line-height: 2rem;
+    width: 80vw;
   }
 
   .subtitle {
     font-size: 1.2rem;
-    line-height: 2.2rem;
+    line-height: 1.8rem;
     font-weight: regular;
   }
   
@@ -457,10 +450,7 @@ canvas {
 
   .huge-ear img {
     height: 38vh;
-    padding-left: 2.5rem;
-    padding-bottom: 1rem;
-    margin-bottom: 2.2rem;
-    margin-right: 3rem;
+    margin-bottom: 4.2rem;
   }
 
   .text {
