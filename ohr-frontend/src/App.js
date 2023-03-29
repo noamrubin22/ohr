@@ -1,5 +1,5 @@
 import './App.css';
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { clusterApiUrl } from '@solana/web3.js';
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 import {
@@ -22,9 +22,8 @@ require('@solana/wallet-adapter-react-ui/styles.css');
 
 function App() {
   // you can use Mainnet, Devnet or Testnet here
-  const solNetwork = WalletAdapterNetwork.Mainnet;
+  const solNetwork = WalletAdapterNetwork.Devnet;
   const endpoint = useMemo(() => clusterApiUrl(solNetwork), [solNetwork]);
-
   // initialise all the wallets you want to use
   const wallets = useMemo(
     () => [
@@ -39,7 +38,7 @@ function App() {
     ],
     [solNetwork]
   );
-  const wallet = useWallet();
+  //const wallet = useWallet();
 
   return (
     <ConnectionProvider endpoint={endpoint}>
