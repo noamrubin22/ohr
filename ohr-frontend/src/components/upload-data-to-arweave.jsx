@@ -1,10 +1,12 @@
 import { React, useState, useEffect } from "react";
 import Arweave from 'arweave';
 import CreateMetaAndMint from "./create-metadata-and-mint";
-
 const { Buffer } = require("buffer");
 
 const UploadDataToArweave = ({ blob }) => {
+
+    const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
+    const wallet = useWallet();
     const arweaveKey = JSON.parse(process.env.ARWEAVE_KEY);
 
     const arweave = Arweave.init({
@@ -58,6 +60,7 @@ const UploadDataToArweave = ({ blob }) => {
 
 
         const dataUrl = transaction.id ? `https://arweave.net/${transaction.id}` : undefined;
+
         const dataUrlAudio = transaction2.id ? `https://arweave.net/${transaction2.id}` : undefined;
         
         setImgUrl(dataUrl);
@@ -69,6 +72,7 @@ const UploadDataToArweave = ({ blob }) => {
         <button className="btn btn-ghost" onClick={onClick}>1. Upload data to Arweave</button>
         <CreateMetaAndMint imgUrl={imgUrl} audioUrl={audioUrl}/>
       </>
+
 
     );
 }

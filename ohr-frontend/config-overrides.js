@@ -23,6 +23,6 @@ module.exports = function override(config, env) {
             return prev;
         }, {})),
     );
-
     return config;
+    
 }
