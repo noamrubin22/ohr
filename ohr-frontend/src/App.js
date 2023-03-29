@@ -1,24 +1,26 @@
-import './App.css';
-import { useMemo } from 'react';
-import { clusterApiUrl } from '@solana/web3.js';
-import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
+import "./App.css";
+import { useMemo } from "react";
+import { clusterApiUrl } from "@solana/web3.js";
+import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 import {
-	GlowWalletAdapter,
-	LedgerWalletAdapter,
-	PhantomWalletAdapter,
-	SlopeWalletAdapter,
-	SolflareWalletAdapter,
-	SolletExtensionWalletAdapter,
-	SolletWalletAdapter,
-	TorusWalletAdapter,
-} from '@solana/wallet-adapter-wallets';
-import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
-import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
+  GlowWalletAdapter,
+  LedgerWalletAdapter,
+  PhantomWalletAdapter,
+  SlopeWalletAdapter,
+  SolflareWalletAdapter,
+  SolletExtensionWalletAdapter,
+  SolletWalletAdapter,
+  TorusWalletAdapter,
+} from "@solana/wallet-adapter-wallets";
+import {
+  ConnectionProvider,
+  WalletProvider,
+} from "@solana/wallet-adapter-react";
+import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 //for button
-import { useWallet } from '@solana/wallet-adapter-react';
-import LandingPage from "./components/landing-page"
-require('@solana/wallet-adapter-react-ui/styles.css');
-
+import { useWallet } from "@solana/wallet-adapter-react";
+import LandingPage from "./components/landing-page";
+require("@solana/wallet-adapter-react-ui/styles.css");
 
 function App() {
   // you can use Mainnet, Devnet or Testnet here
@@ -42,7 +44,7 @@ function App() {
 
   return (
     <ConnectionProvider endpoint={endpoint}>
-      <WalletProvider wallets={wallets} >
+      <WalletProvider wallets={wallets}>
         <WalletModalProvider>
           <div className="App">
             <LandingPage />
