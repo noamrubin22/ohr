@@ -5,7 +5,7 @@ import { WalletNotConnectedError } from '@solana/wallet-adapter-base';
 import { clusterApiUrl, LAMPORTS_PER_SOL, Connection } from '@solana/web3.js';
 import { useWallet } from '@solana/wallet-adapter-react';
 
-const CreateMetaAndMint = () => {
+const CreateMetaAndMint = (props) => {
     const arweaveKey = JSON.parse(process.env.ARWEAVE_KEY);
     const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
     const wallet = useWallet();
@@ -14,22 +14,24 @@ const CreateMetaAndMint = () => {
         port: 443,
         protocol: 'https',
     });
+
     let metadata = `{
     "name":"øhr",
     "symbol":"NFT",
-    "description":"bla bla bla",
+    "description":"lets seeeeee",
     "seller_fee_basis_points":100,
-    "image":"https://arweave.net/NdfYtfUQwot4Vnav-UVamgb1SPEfDP-U1D-n3F9acv8",
+    "image":"${props.imgUrl}",
+    "audio": "${props.audioUrl}",
     "attributes":[{"trait_type":"Ear","value":"Classic"}],
     "external_url":"",
     "properties":
-        {"files":[{"uri":"https://arweave.net/NdfYtfUQwot4Vnav-UVamgb1SPEfDP-U1D-n3F9acv8","type":"image/png"}],
-        "category":"image",
+        {"files":[{"uri":"${props.audioUrl}","type":"audio/wav"}],
+        "category":"audio",
         "creators":[{"address":"CyVTvTSEYWv9LQHwmR3w69zVPMBZWJxdAahYp6JqFfkp","verified":true,"share":100}]}
     }`
+
     metadata = metadata.trim();
     const metadataRequest = JSON.parse(JSON.stringify(metadata));
-    console.log(metadataRequest, "METADATA");
 
     async function onClick() {
         if (!wallet.publicKey) throw new WalletNotConnectedError();
@@ -60,7 +62,7 @@ const CreateMetaAndMint = () => {
     }
 
     return (
-        <button className="btn btn-ghost" onClick={onClick}>2.create metadata and mint</button>
+        <button className="btn btn-ghost" onClick={onClick}>2.Create metadata and mint</button>
     );
 }
 

@@ -76,7 +76,6 @@ const VisualisationAndCoords = ({ blob, setView }) => {
       </div>
       <div className="vis-btns">
         <UploadDataToArweave blob={blob} />
-        <CrateMetaAndMint />
         <button className="btn btn-ghost" onClick={handleBack}>back</button>
       </div>
     </div >
