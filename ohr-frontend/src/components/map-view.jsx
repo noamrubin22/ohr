@@ -3,7 +3,6 @@ import Map, { GeolocateControl, Marker } from "react-map-gl";
 
 function MapView({ setView }) {
   const [currentCoordinates, setCurrentCoordinates] = useState();
-
   const accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
   useEffect(() => {
