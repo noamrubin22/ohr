@@ -53,7 +53,7 @@ const Recording = ({ ear, onRecorded, setView }) => {
   };
 
   const handleContinue = () => {
-    setView("map");
+    setView("visual");
     setDidRecord(false);
   };
 
