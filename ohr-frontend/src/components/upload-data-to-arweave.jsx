@@ -4,9 +4,8 @@ import CreateMetaAndMint from "./create-metadata-and-mint";
 const { Buffer } = require("buffer");
 
 const UploadDataToArweave = ({ blob }) => {
-
-    const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
-    const wallet = useWallet();
+    //const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
+    //const wallet = useWallet();
     const arweaveKey = JSON.parse(process.env.ARWEAVE_KEY);
 
     const arweave = Arweave.init({
