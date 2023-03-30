@@ -16,18 +16,29 @@ const CreateMetaAndMint = (props) => {
     });
 
     let metadata = `{
-    "name":"øhr",
+    "name":"øhr5",
     "symbol":"NFT",
-    "description":"lets seeeeee",
+    "description":"playable nft",
     "seller_fee_basis_points":100,
-    "image":"${props.imgUrl}",
-    "audio": "${props.audioUrl}",
-    "attributes":[{"trait_type":"Ear","value":"Classic"}],
-    "external_url":"",
+    "image":"${props.imgUrl}?ext=png",
+    "animation_url": "${props.audioUrl}?ext=wav",
+    "attributes":[{"trait_type":"Ear","value":"Audio NFT Recording"}],
+    "external_url":"https://noamrubin22.github.io/ohr/",
     "properties":
-        {"files":[{"uri":"${props.audioUrl}","type":"audio/wav"}],
+        {"files":[
+            {
+                "uri":"${props.audioUrl}?ext=wav",
+                "type":"audio/wav"
+            },
+            {
+                "uri":"${props.imgUrl}?ext=png",
+                "type":"image/png"
+            }
+        ],
         "category":"audio",
-        "creators":[{"address":"CyVTvTSEYWv9LQHwmR3w69zVPMBZWJxdAahYp6JqFfkp","verified":true,"share":100}]}
+        "creators":[{"address":"CyVTvTSEYWv9LQHwmR3w69zVPMBZWJxdAahYp6JqFfkp",
+        "verified":true,
+        "share":100}]}
     }`
 
     metadata = metadata.trim();

@@ -59,9 +59,11 @@ const UploadDataToArweave = ({ blob }) => {
 
 
         const dataUrl = transaction.id ? `https://arweave.net/${transaction.id}` : undefined;
+        console.log(dataUrl, "img url")
 
         const dataUrlAudio = transaction2.id ? `https://arweave.net/${transaction2.id}` : undefined;
-        
+        console.log(`${dataUrlAudio}?ext=wav`, "audio url")
+
         setImgUrl(dataUrl);
         setAudioUrl(dataUrlAudio);
     };
