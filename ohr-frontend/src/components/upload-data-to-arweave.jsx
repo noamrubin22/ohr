@@ -73,8 +73,6 @@ const UploadDataToArweave = ({ blob }) => {
         <button className="btn btn-ghost" onClick={onClick}>1. Upload data to Arweave</button>
         <CreateMetaAndMint imgUrl={imgUrl} audioUrl={audioUrl}/>
       </>
-
-
     );
 }
 
