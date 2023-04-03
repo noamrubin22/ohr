@@ -13,6 +13,7 @@ we built this dApp for the Grizzlython, a hackathon organised by [Solana](https:
 <p align="center">
   <img src="https://github.com/noamrubin22/ohr/blob/main/ohr-frontend/public/mobile-screenshot.png" alt="øhr mobile screenshot" height="500vh"/>
 </p>
+
 ## How it works
 
 You can record sound by holding the recording button. The audio is then transformed into an image and together with a timestamp, (optionally) a location and audio file minted on the Solana blockchain
