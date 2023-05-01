@@ -61,6 +61,7 @@ const Recording = ({ ear, onRecorded, setView }) => {
     <>
       <div className="central-inner-container">
         <Timer recording={recording} recUrl={recUrl} />
+        
         <div className="recording-container">
           <button
             className={didRecord ? "huge-ear" : "huge-ear rec"}

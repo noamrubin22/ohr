@@ -40,7 +40,6 @@ function App() {
     ],
     [solNetwork]
   );
-  //const wallet = useWallet();
 
   return (
     <ConnectionProvider endpoint={endpoint}>
