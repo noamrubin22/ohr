@@ -1,5 +1,6 @@
 function HomeBtn({ setView }) {
-  const handleClick = () => {
+
+  function handleClick() {
     const confirmed = window.confirm(
       "Are you sure you want to go back to the main page? You will lose your recording."
     );
@@ -7,6 +8,7 @@ function HomeBtn({ setView }) {
       setView("");
     }
   };
+  
   return (
     <button className="home-btn" onClick={() => handleClick()}>
       <h1 className="app-title">øhr</h1>
