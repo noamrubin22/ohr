@@ -125,7 +125,6 @@ const UploadDataToArweave = ({ blob }) => {
     return (
       <>
         <button className="btn btn-ghost big" onClick={onClick}>MINT NFT</button>
-        {/* <CreateMetaAndMint imgUrl={imgUrl} audioUrl={audioUrl}/> */}
       </>
     );
 }
