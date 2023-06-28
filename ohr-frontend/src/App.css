@@ -366,15 +366,6 @@ canvas {
   outline: #191d24 3px solid;
   box-shadow: 5px 5px 5px rgb(34, 34, 34);
 }
-/* 
-.vis-btns {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: center;
-} */
 
 .big {
   font-size: 2.5rem;

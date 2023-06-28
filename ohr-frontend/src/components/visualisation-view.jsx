@@ -1,9 +1,7 @@
 import { React, useState, useRef, useEffect } from "react";
 import UploadDataToArweave from "./upload-data-to-arweave";
-import CrateMetaAndMint from "./create-metadata-and-mint";
 
 const pixelSize = 6.8;
-
 
 const VisualisationAndCoords = ({ blob, setView }) => {
   const [pcm, setPcm] = useState(null);
